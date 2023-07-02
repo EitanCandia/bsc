@@ -26,6 +26,8 @@ import com.bff.bsc.dto.ObjetivoDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
 import com.bff.bsc.service.ServiceBsc;
+import com.bff.bsc.dto.TipoDocumentoDTO;
+import com.bff.bsc.dto.ProyectoDTO;
 
 
 
@@ -379,4 +381,84 @@ public class BscController {
         bsc.bsc_proyecto_personaDelete(id);
         return ResponseEntity.noContent().build();
     }
+	//------------------------------------------------------------------------------------------------------------------------------------------------
+		//------------------------------------------------------------------------------------------------------------------------------------------------
+		//------------------------------------------------------------------------------------------------------------------------------------------------	
+		//------------------------------------------------------------------------------------------------------------------------------------------------	
+		//------------------BSC_proyecto -> Pablo Valenzuela - MYSQL--------------------------------------------------------------------------------
+		//------------------------------------------------------------------------------------------------------------------------------------------------	
+	
+	//OBTENER-GET
+	@GetMapping(value= "/bsc_proyectofindAll")
+	public List<ProyectoDTO> bsc_proyectofindAll(){
+		return bsc.bsc_proyectofindAll();
+	}
+
+	//OBTENER-GET POR ID
+	@GetMapping(value= "/bsc_proyectofindById/{id}")
+	public Optional<ProyectoDTO> bsc_proyectofindById(@PathVariable("id") int id){
+		return bsc.bsc_proyectofindById(id);
+	}
+
+	//BORRAR-DELETE
+	@ResponseBody @DeleteMapping("/bsc_proyectodelete/{id}")
+	public int bsc_proyectodelete(@PathVariable("id") int id) {
+		Optional<ProyectoDTO> proyecto = bsc.bsc_proyectofindById(id);
+		if (proyecto.isPresent()==true) {
+			bsc.bsc_proyectodelete(id);
+			return 1;
+		} else return 0;
+	}
+	
+	//GUARDAR-POST
+	@ResponseBody @PostMapping("/bsc_proyectosave")
+	public ProyectoDTO agregarTema(@RequestBody ProyectoDTO proyecto) {
+		return bsc.bsc_proyectosave(proyecto);
+	}
+	
+	//ACTUALIZAR-PUT
+	@ResponseBody @PutMapping(("/bsc_proyectoUpdate"))
+	public ProyectoDTO updateSituacionById(@Valid @NonNull @RequestBody ProyectoDTO proyecto) {
+		Optional<ProyectoDTO> p = bsc.bsc_proyectofindById(proyecto.getId());
+		if (p.isPresent()==true) {
+			return bsc.bsc_proyectosave(proyecto);
+		} else return null;
+	}
+	
+	@ResponseBody @PutMapping(("/bsc_proyectoUpdate/{id}"))
+	public ProyectoDTO updateSituacionById(@Valid @NonNull @RequestBody ProyectoDTO proyecto, @PathVariable("id") int id) {
+		Optional<ProyectoDTO> p = bsc.bsc_proyectofindById(id);
+		if (p.isPresent()==true) {
+			proyecto.setId(id);
+			return bsc.bsc_proyectosave(proyecto);
+		} else return null;
+
+	}
+	
+	//------THOMAS TAPIA
+	
+	@PostMapping("/bsctipodocumento")
+	public TipoDocumentoDTO createTipoDocumento(@RequestBody TipoDocumentoDTO tipo_documento) {
+
+			return bsc.bsc_tipo_documentosave(tipo_documento);
+	}	
+	@GetMapping("/bsctipodocumento")
+	List<TipoDocumentoDTO> all() {
+		    return bsc.bsc_tipo_documentofindAll();
+		  }
+	
+	@GetMapping("/bsctipodocumento/{id}")
+	public Optional<TipoDocumentoDTO> getTipoDocumento(@PathVariable Long id) {
+		return bsc.bsc_tipo_documentofindById(id);
+	}
+	
+	@DeleteMapping("/bsctipodocumento/{id}")
+	public String deleteTipoDocumento(@PathVariable Long id) {
+		Optional<TipoDocumentoDTO> proyecto = bsc.bsc_tipo_documentofindById(id);
+		if (proyecto.isPresent()==true) {
+			bsc.bsc_tipo_documentodelete(id);
+			return "tipo documento eliminado";
+		} else return "error al eliminar tipo documento";
+	}
+	
 }
