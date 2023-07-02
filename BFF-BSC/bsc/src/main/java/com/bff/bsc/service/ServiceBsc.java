@@ -9,6 +9,7 @@ import com.bff.bsc.dto.Bsc_temaDTO;
 import com.bff.bsc.dto.DTOBscProyectoPedido;
 import com.bff.bsc.dto.LugarDTO;
 import com.bff.bsc.dto.ObjetivoDTO;
+import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
 
 
@@ -60,9 +61,16 @@ public interface ServiceBsc {
       public Optional<LugarDTO> bsc_lugarfindById(int id);
       public LugarDTO bsc_lugarsave(LugarDTO bpp);
       public void bsc_lugardelete(int id);
+	
+//-----------------------------------------------------------------------------------------------------------------------------   
+//------------------------------------------------------------------------------------------------------------------------------------------------  
+//BSC_R_Proyecto_Persona> Joaquin Perez -> MYSQL    
     
+    public List<ProyectoPersonaDTO> bsc_proyecto_personaFindAll();
+    public Optional<ProyectoPersonaDTO> bsc_proyecto_personaFindById(int id);
+    public ProyectoPersonaDTO bsc_proyecto_personaSave(ProyectoPersonaDTO persona);
+    public ProyectoPersonaDTO bsc_proyecto_personaUpdate(int id, ProyectoPersonaDTO persona);
+    public void bsc_proyecto_personaDelete(int id);
     
-    
-    
-    
+      
 }
