@@ -344,5 +344,37 @@ public class BscController {
 				    		Lugar.setId(id);
 				    		return bsc.bsc_lugarsave(Lugar);
 				    	} else return null;
-				    }		
+				    }	
+//------------------------------------------------------------------------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------------------------------------------------------------------------	
+//------------------BSC_R_PROYECTO_PERSONA -> JOAQUIN PEREZ - MYSQL--------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------		
+	//OBTENER-GET http://localhost:8080/v1/bsc/ProyectoFindAll
+    @GetMapping(value = "/ProyectoFindAll")
+    public List<ProyectoPersonaDTO> ProyectoFindAll() {
+        return bsc.bsc_proyecto_personaFindAll();
+    }
+
+	//OBTENER-GET POR ID http://localhost:8080/v1/bsc/ProyectoFindById/7
+    @GetMapping(value = "/ProyectoFindById/{id}")
+    public Optional<ProyectoPersonaDTO> ProyectoFindById(@PathVariable("id") int id) {
+        return bsc.bsc_proyecto_personaFindById(id);
+    }
+
+	//GUARDAR-POST http://localhost:8080/v1/bsc/ProyectoSave
+    @PostMapping(value = "/ProyectoSave")
+    public ProyectoPersonaDTO ProyectoSave(@RequestBody ProyectoPersonaDTO proyectoPersonaDTO) {
+        return bsc.bsc_proyecto_personaSave(proyectoPersonaDTO);
+    }
+	//ACTUALIZAR-PUT http://localhost:8080/v1/bsc/ProyectoUpdate/7
+    @PutMapping(value = "/ProyectoUpdate/{id}")
+    public ProyectoPersonaDTO ProyectoUpdate(@PathVariable("id") int id, @RequestBody ProyectoPersonaDTO proyectoPersonaDTO) {
+        return bsc.bsc_proyecto_personaUpdate(id, proyectoPersonaDTO);
+    }
+	//BORRAR-DELETE POR ID http://localhost:8080/v1/bsc/ProyectoDelete/7
+    @DeleteMapping(value = "/ProyectoDelete/{id}")
+    public ResponseEntity<Void> ProyectoDelete(@PathVariable("id") int id) {
+        bsc.bsc_proyecto_personaDelete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
