@@ -12,6 +12,7 @@ import com.bff.bsc.dto.Bsc_temaDTO;
 import com.bff.bsc.dto.DTOBscProyectoPedido;
 import com.bff.bsc.dto.LugarDTO;
 import com.bff.bsc.dto.ObjetivoDTO;
+import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
 
 import com.bff.bsc.restclients.Bsc_situacion;
@@ -19,6 +20,7 @@ import com.bff.bsc.restclients.Bsc_lugar;
 import com.bff.bsc.restclients.Bsc_objetivo;
 import com.bff.bsc.restclients.Bsc_proyecto_actividad;
 import com.bff.bsc.restclients.Bsc_proyecto_pedido;
+import com.bff.bsc.restclients.Bsc_r_Proyecto_Persona;
 import com.bff.bsc.restclients.Bsc_tema;
 
 
@@ -45,6 +47,9 @@ Bsc_objetivo objetivo;
 
 @Autowired
 Bsc_lugar lugar;
+
+@Autowired
+Bsc_r_Proyecto_Persona proyecto_persona;
 //-------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------BSC_PROYECTO_ACTIVIDAD -> TOMAS OSORIO - MYSQL---------------------------------------------------------
@@ -215,6 +220,37 @@ public void bsc_lugardelete(int id) {
 	
 }
 
-//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------   
+//-----------------------------------------------------------------------------------------------------------------------------    
+//------------------------BSC_R_PROYECTO_PERSONA-> Joaquin Perez -> MYSQL--------------------------------------------------------
+@Override
+public List<ProyectoPersonaDTO> bsc_proyecto_personaFindAll() {
+	// TODO Auto-generated method stub
+    return proyecto_persona.findAll();
+}
+
+@Override
+public Optional<ProyectoPersonaDTO> bsc_proyecto_personaFindById(int id) {
+	// TODO Auto-generated method stub
+    return proyecto_persona.findById(id);
+}
+
+@Override
+public ProyectoPersonaDTO bsc_proyecto_personaSave(ProyectoPersonaDTO proyectoPersonaDTO) {
+	// TODO Auto-generated method stub
+    return proyecto_persona.save(proyectoPersonaDTO);
+}
+
+@Override
+public ProyectoPersonaDTO bsc_proyecto_personaUpdate(int id, ProyectoPersonaDTO proyectoPersonaDTO) {
+	// TODO Auto-generated method stub
+    return proyecto_persona.update(id, proyectoPersonaDTO);
+}
+
+@Override
+public void bsc_proyecto_personaDelete(int id) {
+	// TODO Auto-generated method stub
+	proyecto_persona.delete(id);
+}
 
 }
