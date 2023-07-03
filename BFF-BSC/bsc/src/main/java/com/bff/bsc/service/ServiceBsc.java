@@ -13,6 +13,7 @@ import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
 import com.bff.bsc.dto.ProyectoDTO;
 import com.bff.bsc.dto.TipoDocumentoDTO;
+import com.bff.bsc.dto.KpiMetaDTO;
 
 public interface ServiceBsc {
 	
