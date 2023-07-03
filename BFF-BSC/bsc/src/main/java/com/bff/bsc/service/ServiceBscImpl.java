@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.bff.bsc.dto.SituacionDTO;
 import com.bff.bsc.dto.Bsc_temaDTO;
 import com.bff.bsc.dto.DTOBscProyectoPedido;
+import com.bff.bsc.dto.Inventario_itemDTO;
 import com.bff.bsc.dto.LugarDTO;
 import com.bff.bsc.dto.ObjetivoDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
@@ -20,6 +21,7 @@ import com.bff.bsc.restclients.Bsc_lugar;
 import com.bff.bsc.restclients.Bsc_objetivo;
 import com.bff.bsc.restclients.Bsc_proyecto_actividad;
 import com.bff.bsc.restclients.Bsc_proyecto_pedido;
+import com.bff.bsc.restclients.Bsc_inventario_item;
 import com.bff.bsc.restclients.Bsc_r_Proyecto_Persona;
 import com.bff.bsc.restclients.Bsc_tema;
 
@@ -47,6 +49,9 @@ Bsc_objetivo objetivo;
 
 @Autowired
 Bsc_lugar lugar;
+
+@Autowired
+Bsc_inventario_item inventario_item;
 
 @Autowired
 Bsc_r_Proyecto_Persona proyecto_persona;
@@ -219,7 +224,35 @@ public void bsc_lugardelete(int id) {
 	lugar.delete(id);
 	
 }
+//-----------------------------------------------------------------------------------------------------------------------------   
+//-----------------------------------------------------------------------------------------------------------------------------    
+//------------------------BSC_INVENTARIO_ITEM-> MATIAS CORDOVA -> MYSQL--------------------------------------------------------
+@Override
+public List<Inventario_itemDTO> bsc_inventario_itemFindAll() {
+	return inventario_item.findAll();
+}
 
+@Override
+public Optional<Inventario_itemDTO> bsc_inventario_itemFindById(int id) {
+	return inventario_item.findById(id);
+}
+
+@Override
+public Inventario_itemDTO bsc_inventario_itemSave(Inventario_itemDTO Ii) {
+	Inventario_itemDTO inventarioItem = inventario_item.save(Ii);
+	return inventarioItem;
+}
+@Override
+public Inventario_itemDTO bsc_inventario_itemUpdate(int id, Inventario_itemDTO inventario_item) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public void bsc_inventario_itemDelete(int id) {
+	lugar.delete(id);
+	
+}
 //-----------------------------------------------------------------------------------------------------------------------------   
 //-----------------------------------------------------------------------------------------------------------------------------    
 //------------------------BSC_R_PROYECTO_PERSONA-> Joaquin Perez -> MYSQL--------------------------------------------------------
@@ -252,5 +285,7 @@ public void bsc_proyecto_personaDelete(int id) {
 	// TODO Auto-generated method stub
 	proyecto_persona.delete(id);
 }
+
+
 
 }

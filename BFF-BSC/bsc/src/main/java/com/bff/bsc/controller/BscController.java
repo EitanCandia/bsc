@@ -24,6 +24,7 @@ import com.bff.bsc.dto.DTOBscProyectoPedido;
 import com.bff.bsc.dto.LugarDTO;
 import com.bff.bsc.dto.ObjetivoDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
+import com.bff.bsc.dto.Inventario_itemDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
 import com.bff.bsc.service.ServiceBsc;
 
@@ -346,12 +347,48 @@ public class BscController {
 				    		Lugar.setId(id);
 				    		return bsc.bsc_lugarsave(Lugar);
 				    	} else return null;
-				    }	
+				    }
+				    
+//------------------------------------------------------------------------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------------------------------------------------------------------------	
+//------------------BSC_INVENTARIO_ITEM -> MATIAS CORDOVA - MYSQL--------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------		
+				    @GetMapping(value= "/bsc_inventario_itemFindAll")
+					public List<Inventario_itemDTO> bsc_inventario_itemFindAll(){
+						return bsc.bsc_inventario_itemFindAll();
+					}
+					@GetMapping(value= "/bsc_inventario_itemFindById/{id}") //READ-GET/id
+					public Optional<Inventario_itemDTO> bsc_inventario_itemFindById(@PathVariable("id") int id) {
+					        return bsc.bsc_inventario_itemFindById(id);
+					    }
+
+					
+						
+						
+						//GUARDAR-POST
+						@ResponseBody @PostMapping("/bsc_inventario_itemSave")
+						public Inventario_itemDTO bsc_inventario_itemSave(@RequestBody Inventario_itemDTO Ii) {
+							return bsc.bsc_inventario_itemSave(Ii);
+						}
+						
+						//ACTUALIZAR-PUT
+						@PutMapping(value = "/bsc_inventario_itemUpdate/{id}")
+					    public Inventario_itemDTO bsc_inventario_itemUpdate(@PathVariable("id") int id, @RequestBody Inventario_itemDTO Ii) {
+					        return bsc.bsc_inventario_itemUpdate(id, Ii);
+					    }
+						//BORRAR-DELETE POR ID 
+					    @DeleteMapping(value = "/bsc_inventario_itemDelete/{id}")
+					    public ResponseEntity<Void> bsc_inventario_itemDelete(@PathVariable("id") int id) {
+					        bsc.bsc_inventario_itemDelete(id);
+					        return ResponseEntity.noContent().build();
+					    }
+			    
+
 //------------------------------------------------------------------------------------------------------------------------------------------------	
 //------------------------------------------------------------------------------------------------------------------------------------------------	
 //------------------BSC_R_PROYECTO_PERSONA -> JOAQUIN PEREZ - MYSQL--------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------------------------------------------------------		
-	//OBTENER-GET http://localhost:8080/v1/bsc/ProyectoFindAll
+//------------------------------------------------------------------------------------------------------------------------------------------------	
+				    //OBTENER-GET http://localhost:8080/v1/bsc/ProyectoFindAll
     @GetMapping(value = "/ProyectoFindAll")
     public List<ProyectoPersonaDTO> ProyectoFindAll() {
         return bsc.bsc_proyecto_personaFindAll();

@@ -9,6 +9,7 @@ import com.bff.bsc.dto.Bsc_temaDTO;
 import com.bff.bsc.dto.DTOBscProyectoPedido;
 import com.bff.bsc.dto.LugarDTO;
 import com.bff.bsc.dto.ObjetivoDTO;
+import com.bff.bsc.dto.Inventario_itemDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
 
@@ -61,7 +62,15 @@ public interface ServiceBsc {
       public Optional<LugarDTO> bsc_lugarfindById(int id);
       public LugarDTO bsc_lugarsave(LugarDTO bpp);
       public void bsc_lugardelete(int id);
-	
+    //-----------------------------------------------------------------------------------------------------------------------------   
+    //------------------------------------------------------------------------------------------------------------------------------------------------  
+    //BSC_INVENTARIO_ITEM -> MATIAS CORDOVA -> MYSQL    
+        
+        public List<Inventario_itemDTO> bsc_inventario_itemFindAll();
+        public Optional<Inventario_itemDTO> bsc_inventario_itemFindById(int id);
+        public Inventario_itemDTO bsc_inventario_itemSave(Inventario_itemDTO inventario_item);
+        public Inventario_itemDTO bsc_inventario_itemUpdate(int id, Inventario_itemDTO inventario_item);
+        public void bsc_inventario_itemDelete(int id);
 //-----------------------------------------------------------------------------------------------------------------------------   
 //------------------------------------------------------------------------------------------------------------------------------------------------  
 //BSC_R_Proyecto_Persona> Joaquin Perez -> MYSQL    
