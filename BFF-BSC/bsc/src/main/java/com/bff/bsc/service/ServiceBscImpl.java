@@ -14,6 +14,8 @@ import com.bff.bsc.dto.LugarDTO;
 import com.bff.bsc.dto.ObjetivoDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
+import com.bff.bsc.dto.KpiMetaDTO;
+
 
 import com.bff.bsc.restclients.Bsc_situacion;
 import com.bff.bsc.restclients.Bsc_lugar;
@@ -24,6 +26,9 @@ import com.bff.bsc.restclients.Bsc_r_Proyecto_Persona;
 import com.bff.bsc.restclients.Bsc_tema;
 import com.bff.bsc.restclients.bsc_tipo_documento;
 import com.bff.bsc.restclients.Bsc_proyecto;
+import com.bff.bsc.restclients.bsc_kpiMetaMicro1;
+
+
 
 @Service
 public class ServiceBscImpl implements ServiceBsc {
@@ -305,5 +310,41 @@ public TipoDocumentoDTO bsc_tipo_documentosave(TipoDocumentoDTO td) {
 public void bsc_tipo_documentodelete(long id) {
 	tipo_documento.delete(id);
 }
+
+//----------------------------------------------------------------------------------------------------------------------------- 
+
+//-----------------BSC_KPI_META -> MOISES CONTRERAS - MYSQL-------------------------------------------------------------------------
+
+    @Override
+    public List<KpiMetaDTO> kpiMetaFindAll() {
+        // TODO Auto-generated method stub
+        return kpi_meta.findAll();
+    }
+
+    @Override
+    public Optional<KpiMetaDTO> kpiMetaFindById(int id) {
+        // TODO Auto-generated method stub
+        return kpi_meta.findById(id);
+    }
+
+    @Override
+    public KpiMetaDTO kpiMetaSave(KpiMetaDTO kpiMeta) {
+        // TODO Auto-generated method stub
+        return kpi_meta.kpiMetaSave(kpiMeta);
+    }
+
+    @Override
+    public void kpiMetadelete(int id) {
+        kpi_meta.kpiMetadelete(id);
+    }
+
+    @Override
+    public KpiMetaDTO kpiMetaUpdate(int id, KpiMetaDTO kpiMeta) {
+        // TODO Auto-generated method stub
+        return kpi_meta.kpiMetaUpdate(id, kpiMeta);
+    }
+
+
+	
 
 }
