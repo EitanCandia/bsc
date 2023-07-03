@@ -87,5 +87,17 @@ public interface ServiceBsc {
   public Optional<TipoDocumentoDTO> bsc_tipo_documentofindById(long id);
   public TipoDocumentoDTO bsc_tipo_documentosave(TipoDocumentoDTO tipo_documento);
   public void bsc_tipo_documentodelete(long id);
+
+
+
+  //-----------------------------------------------------------------------------------------------------------------------------   
+  //------------------------------------------------------------------------------------------------------------------------------------------------  
+  //BSC_kpi_meta> Moises Contreras -> MYSQL
+    public List<KpiMetaDTO> kpiMetaFindAll();
+    public Optional<KpiMetaDTO> kpiMetaFindById(int id);
+    public KpiMetaDTO kpiMetaSave(KpiMetaDTO kpiMeta);
+    public void kpiMetadelete(int id);
+    public KpiMetaDTO kpiMetaUpdate(int id, KpiMetaDTO kpiMeta);
+
       
 }
