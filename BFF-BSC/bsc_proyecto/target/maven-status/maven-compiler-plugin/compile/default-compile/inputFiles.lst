@@ -1,0 +1,7 @@
+/home/pablo/Documentos/bsc/BFF-BSC/bsc_proyecto/src/main/java/com/example/herramientas_desarrollo_proyecto/crud/repository/IProyectoRepository.java
+/home/pablo/Documentos/bsc/BFF-BSC/bsc_proyecto/src/main/java/com/example/herramientas_desarrollo_proyecto/crud/entity/ProyectoEntity.java
+/home/pablo/Documentos/bsc/BFF-BSC/bsc_proyecto/src/main/java/com/example/herramientas_desarrollo_proyecto/crud/dto/ProyectoDTO.java
+/home/pablo/Documentos/bsc/BFF-BSC/bsc_proyecto/src/main/java/com/example/herramientas_desarrollo_proyecto/HerramientasDesarrolloProyectoApplication.java
+/home/pablo/Documentos/bsc/BFF-BSC/bsc_proyecto/src/main/java/com/example/herramientas_desarrollo_proyecto/crud/controller/ControladorProyecto.java
+/home/pablo/Documentos/bsc/BFF-BSC/bsc_proyecto/src/main/java/com/example/herramientas_desarrollo_proyecto/crud/service/ICrudService.java
+/home/pablo/Documentos/bsc/BFF-BSC/bsc_proyecto/src/main/java/com/example/herramientas_desarrollo_proyecto/crud/service/CrudServiceProyectoImpl.java

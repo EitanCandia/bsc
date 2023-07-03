@@ -1,0 +1,5 @@
+/app/src/main/java/com/example/demo/RestController/RestController.java
+/app/src/main/java/com/example/demo/Model/TipoDocumento.java
+/app/src/main/java/com/example/demo/dto/Dto.java
+/app/src/main/java/com/example/demo/Tarea1HdApplication.java
+/app/src/main/java/com/example/demo/Repository/TipoDocumentoRepository.java

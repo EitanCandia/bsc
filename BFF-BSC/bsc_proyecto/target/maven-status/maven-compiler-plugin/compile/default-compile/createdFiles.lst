@@ -1,0 +1,7 @@
+com/example/herramientas_desarrollo_proyecto/crud/service/ICrudService.class
+com/example/herramientas_desarrollo_proyecto/crud/dto/ProyectoDTO.class
+com/example/herramientas_desarrollo_proyecto/crud/repository/IProyectoRepository.class
+com/example/herramientas_desarrollo_proyecto/HerramientasDesarrolloProyectoApplication.class
+com/example/herramientas_desarrollo_proyecto/crud/controller/ControladorProyecto.class
+com/example/herramientas_desarrollo_proyecto/crud/service/CrudServiceProyectoImpl.class
+com/example/herramientas_desarrollo_proyecto/crud/entity/ProyectoEntity.class

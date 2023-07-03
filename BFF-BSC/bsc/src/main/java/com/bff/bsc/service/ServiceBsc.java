@@ -12,7 +12,9 @@ import com.bff.bsc.dto.ObjetivoDTO;
 import com.bff.bsc.dto.Inventario_itemDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
-
+import com.bff.bsc.dto.ProyectoDTO;
+import com.bff.bsc.dto.TipoDocumentoDTO;
+import com.bff.bsc.dto.KpiMetaDTO;
 
 public interface ServiceBsc {
 	
@@ -80,6 +82,32 @@ public interface ServiceBsc {
     public ProyectoPersonaDTO bsc_proyecto_personaSave(ProyectoPersonaDTO persona);
     public ProyectoPersonaDTO bsc_proyecto_personaUpdate(int id, ProyectoPersonaDTO persona);
     public void bsc_proyecto_personaDelete(int id);
+      //-----------------------------------------------------------------------------------------------------------------------------   
+  //------------------------------------------------------------------------------------------------------------------------------------------------  
+  //BSC_PROYECTO> Pablo Valenzuela -> MYSQL
     
+  public List<ProyectoDTO> bsc_proyectofindAll();
+  public Optional<ProyectoDTO> bsc_proyectofindById(int id);
+  public ProyectoDTO bsc_proyectosave(ProyectoDTO bpp);
+  public void bsc_proyectodelete(int id);
+  //-----------------------------------------------------------------------------------------------------------------------------   
+  //------------------------------------------------------------------------------------------------------------------------------------------------  
+  //BSC_TIPO_DOCUMENTO> Thomas Tapia -> MYSQL
+  public List<TipoDocumentoDTO> bsc_tipo_documentofindAll();
+  public Optional<TipoDocumentoDTO> bsc_tipo_documentofindById(long id);
+  public TipoDocumentoDTO bsc_tipo_documentosave(TipoDocumentoDTO tipo_documento);
+  public void bsc_tipo_documentodelete(long id);
+
+
+
+  //-----------------------------------------------------------------------------------------------------------------------------   
+  //------------------------------------------------------------------------------------------------------------------------------------------------  
+  //BSC_kpi_meta> Moises Contreras -> MYSQL
+    public List<KpiMetaDTO> kpiMetaFindAll();
+    public Optional<KpiMetaDTO> kpiMetaFindById(int id);
+    public KpiMetaDTO kpiMetaSave(KpiMetaDTO kpiMeta);
+    public void kpiMetadelete(int id);
+    public KpiMetaDTO kpiMetaUpdate(int id, KpiMetaDTO kpiMeta);
+
       
 }

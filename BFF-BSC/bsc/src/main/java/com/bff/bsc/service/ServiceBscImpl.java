@@ -15,6 +15,8 @@ import com.bff.bsc.dto.LugarDTO;
 import com.bff.bsc.dto.ObjetivoDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
+import com.bff.bsc.dto.KpiMetaDTO;
+
 
 import com.bff.bsc.restclients.Bsc_situacion;
 import com.bff.bsc.restclients.Bsc_lugar;
@@ -24,6 +26,10 @@ import com.bff.bsc.restclients.Bsc_proyecto_pedido;
 import com.bff.bsc.restclients.Bsc_inventario_item;
 import com.bff.bsc.restclients.Bsc_r_Proyecto_Persona;
 import com.bff.bsc.restclients.Bsc_tema;
+import com.bff.bsc.restclients.bsc_tipo_documento;
+import com.bff.bsc.restclients.Bsc_proyecto;
+import com.bff.bsc.restclients.bsc_kpiMetaMicro1;
+
 
 
 @Service
@@ -55,6 +61,12 @@ Bsc_inventario_item inventario_item;
 
 @Autowired
 Bsc_r_Proyecto_Persona proyecto_persona;
+
+@Autowired
+Bsc_proyecto proyecto;
+
+@Autowired
+bsc_tipo_documento tipo_documento;
 //-------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------BSC_PROYECTO_ACTIVIDAD -> TOMAS OSORIO - MYSQL---------------------------------------------------------
@@ -285,6 +297,88 @@ public void bsc_proyecto_personaDelete(int id) {
 	// TODO Auto-generated method stub
 	proyecto_persona.delete(id);
 }
+//-----------------------------------------------------------------------------------------------------------------------------   
+//-----------------------------------------------------------------------------------------------------------------------------    
+//------------------------BSC_Lugar-> Pablo Valenzuela -> MYSQL--------------------------------------------------------
+@Override
+public List<ProyectoDTO> bsc_proyectofindAll() {
+	return proyecto.findAll();
+}
+
+@Override
+public Optional<ProyectoDTO> bsc_proyectofindById(int id) {
+	return proyecto.findById(id);
+}
+
+@Override
+public ProyectoDTO bsc_proyectosave(ProyectoDTO p) {
+	ProyectoDTO Proyecto = proyecto.save(p);
+	return Proyecto;
+}
+
+@Override
+public void bsc_proyectodelete(int id) {
+	lugar.delete(id);
+	
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------
+@Override
+public List<TipoDocumentoDTO> bsc_tipo_documentofindAll() {
+	return tipo_documento.findAll();
+}
+
+@Override
+public Optional<TipoDocumentoDTO> bsc_tipo_documentofindById(long id) {
+	return tipo_documento.findById(id);
+}
+
+@Override
+public TipoDocumentoDTO bsc_tipo_documentosave(TipoDocumentoDTO td) {
+	TipoDocumentoDTO tipodocumento = tipo_documento.save(td);
+	return tipodocumento;
+}
+
+@Override
+public void bsc_tipo_documentodelete(long id) {
+	tipo_documento.delete(id);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------- 
+
+//-----------------BSC_KPI_META -> MOISES CONTRERAS - MYSQL-------------------------------------------------------------------------
+
+    @Override
+    public List<KpiMetaDTO> kpiMetaFindAll() {
+        // TODO Auto-generated method stub
+        return kpi_meta.findAll();
+    }
+
+    @Override
+    public Optional<KpiMetaDTO> kpiMetaFindById(int id) {
+        // TODO Auto-generated method stub
+        return kpi_meta.findById(id);
+    }
+
+    @Override
+    public KpiMetaDTO kpiMetaSave(KpiMetaDTO kpiMeta) {
+        // TODO Auto-generated method stub
+        return kpi_meta.kpiMetaSave(kpiMeta);
+    }
+
+    @Override
+    public void kpiMetadelete(int id) {
+        kpi_meta.kpiMetadelete(id);
+    }
+
+    @Override
+    public KpiMetaDTO kpiMetaUpdate(int id, KpiMetaDTO kpiMeta) {
+        // TODO Auto-generated method stub
+        return kpi_meta.kpiMetaUpdate(id, kpiMeta);
+    }
+
+
+	
 
 
 
