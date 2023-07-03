@@ -28,7 +28,7 @@ import com.bff.bsc.dto.Proyecto_ActividadDTO;
 import com.bff.bsc.service.ServiceBsc;
 import com.bff.bsc.dto.TipoDocumentoDTO;
 import com.bff.bsc.dto.ProyectoDTO;
-
+import com.bff.bsc.dto.KpiMetaDTO;
 
 
 @RestController
@@ -460,5 +460,43 @@ public class BscController {
 			return "tipo documento eliminado";
 		} else return "error al eliminar tipo documento";
 	}
+	
+	//------------------------------------------------------------------------------------------------------------------------------------------------
+		//------------------------------------------------------------------------------------------------------------------------------------------------
+		//------------------------------------------------------------------------------------------------------------------------------------------------	
+		//------------------------------------------------------------------------------------------------------------------------------------------------	
+		//------------------BSC_KPI_META -> MOISES CONTRERAS - MYSQL--------------------------------------------------------------------------------
+		//----
+    @GetMapping(value = "/kpiMetaFindAll")
+    public List<KpiMetaDTO> kpiMetaFindAll()
+    {
+		return bsc.kpiMetaFindAll(); 
+    }
+	
+    @GetMapping(value = "/kpiMetaFindById/{id}")
+    public Optional<KpiMetaDTO> kpiMetaFindById(@PathVariable("id") int id)
+	{
+		return bsc.kpiMetaFindById(id);
+	}
+
+
+
+    @PostMapping(value = "/kpiMetaSave")
+    public KpiMetaDTO kpiMetaSave(@RequestBody KpiMetaDTO kpiMeta) 
+    {
+    return bsc.kpiMetaSave(kpiMeta);}
+	
+    @DeleteMapping("/kpiMetaDelete/{id}")
+    public void kpiMetadelete(@PathVariable int id) {
+        bsc.kpiMetadelete(id);
+    }
+
+    @PutMapping(value = "/kpiMetaUpdate/{id}")
+    public KpiMetaDTO kpiMetaUpdate(@PathVariable("id") int id, @RequestBody KpiMetaDTO kpiMeta) {
+    return bsc.kpiMetaUpdate(id, kpiMeta);
+}
+
+
+	
 	
 }
