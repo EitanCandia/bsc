@@ -31,7 +31,7 @@ import com.bff.bsc.dto.TipoDocumentoDTO;
 import com.bff.bsc.dto.ProyectoDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
 import com.bff.bsc.dto.InventarioUnidadDTO;
-
+import com.bff.bsc.dto.kapi_final_DTO;
 
 @RestController
 @RequestMapping("/v1/bsc")
@@ -596,6 +596,39 @@ public class BscController {
 		} else
 			return null;
 	}
+//------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------------------------------------------------------------------------	
+//------------------BSC_kapi -> TOMAS MELLA - MYSQL--------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------
+	@GetMapping(value = "/kapiFindAll")
+    public List<kapi_final_DTO> kapiFindAll()
+    {
+		return serviceBff1.kapiFindAll(); 
+    }
 	
+	@GetMapping(value = "/kapiFindById/{id}")
+    public Optional<kapi_final_DTO> kapiFindById(@PathVariable("id") int id)
+	{
+		return serviceBff1.kapiFindById(id);
+	}
 	
+    @PostMapping(value = "/kapisave")
+    public kapi_final_DTO kapisave(@RequestBody kapi_final_DTO kapi)
+    {
+    	return serviceBff1.kapisave(kapi);
+    }
+
+    @DeleteMapping(value = "/kapidelete/{id}")
+    public void kapidelete(@PathVariable int id)
+    {
+    	serviceBff1.kapidelete(id);
+    }
+	
+    @PutMapping(value = "/kapiupdate/{id}")
+    public kapi_final_DTO kapiupdate(@PathVariable ("id") int id,@RequestBody kapi_final_DTO kapi)
+    {
+    	return serviceBff1.kapiupdate(id, kapi);
+    }
 }
