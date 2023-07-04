@@ -67,6 +67,9 @@ Bsc_proyecto proyecto;
 
 @Autowired
 bsc_tipo_documento tipo_documento;
+
+@Autowired
+bsc_kpiMetaMicro1 kpi_meta;
 //-------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------BSC_PROYECTO_ACTIVIDAD -> TOMAS OSORIO - MYSQL---------------------------------------------------------
