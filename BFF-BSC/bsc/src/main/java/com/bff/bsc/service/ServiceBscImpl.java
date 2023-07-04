@@ -22,6 +22,7 @@ import com.bff.bsc.dto.KpiMetaDTO;
 import com.bff.bsc.dto.InventarioUnidadDTO;
 import com.bff.bsc.dto.kapi_final_DTO;
 import com.bff.bsc.dto.bsc_plan_de_cuentasDTO;
+import com.bff.bsc.dto.ideasDTO;
 import com.bff.bsc.dto.ProyectoActividad_TipoActividadDTO;
 import com.bff.bsc.restclients.Bsc_situacion;
 import com.bff.bsc.restclients.Bsc_lugar;
@@ -32,6 +33,7 @@ import com.bff.bsc.restclients.Bsc_inventario_item;
 import com.bff.bsc.restclients.Bsc_r_Proyecto_Persona;
 import com.bff.bsc.restclients.Bsc_tema;
 import com.bff.bsc.restclients.bsc_ProyectoActividad_TipoActividad;
+import com.bff.bsc.restclients.bsc_ideas;
 import com.bff.bsc.restclients.bsc_tipo_documento;
 import com.bff.bsc.restclients.Bsc_proyecto;
 import com.bff.bsc.restclients.bsc_kpiMetaMicro1;
@@ -60,6 +62,9 @@ Bsc_proyecto_pedido proyecto_pedido;
 
 @Autowired
 Bsc_objetivo objetivo;
+
+@Autowired
+bsc_ideas ideas;
 
 @Autowired
 Bsc_lugar lugar;
@@ -537,7 +542,7 @@ public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasUpdate(int id, bsc_plan_de_cuen
 
 @Override
 public void bsc_plan_de_cuentasDelete(int id) {
-	lugar.delete(id);
+	bsc_plan_de_cuentas.delete(id);
 	
 }
 
