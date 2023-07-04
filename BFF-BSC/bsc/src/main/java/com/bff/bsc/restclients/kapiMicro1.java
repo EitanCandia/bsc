@@ -1,4 +1,4 @@
-package com.example.demo.restclients;
+package com.bff.bsc.restclients;
 
 import java.util.List;
 import java.util.Optional;
