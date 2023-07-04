@@ -1,4 +1,4 @@
-package com.bff.bsc.dto;
+package com.bff.bsc.restclients;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.example.demo.dto.Proyecto_inventario_recursosDTO;
+import com.bff.bsc.dto.Proyecto_inventario_recursosDTO;
 
 @FeignClient(name = "inventarioUnidadMicro", url = "${rest.endpoints.demoweb.url.bsc_inventario_unidad}")
 public interface bsc_proyecto_inventario_recursos {

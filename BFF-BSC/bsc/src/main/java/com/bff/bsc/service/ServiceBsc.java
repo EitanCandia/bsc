@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.bff.bsc.dto.SituacionDTO;
 
+import com.bff.bsc.dto.bsc_plan_de_cuentasDTO;
 import com.bff.bsc.dto.Bsc_temaDTO;
 import com.bff.bsc.dto.DTOBscProyectoPedido;
 import com.bff.bsc.dto.LugarDTO;
@@ -17,6 +18,7 @@ import com.bff.bsc.dto.TipoDocumentoDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
 import com.bff.bsc.dto.InventarioUnidadDTO;
 import com.bff.bsc.dto.kapi_final_DTO;
+import com.bff.bsc.dto.Proyecto_inventario_recursosDTO;
 import com.bff.bsc.dto.ProyectoActividad_TipoActividadDTO;
 
 public interface ServiceBsc {
@@ -142,7 +144,7 @@ public interface ServiceBsc {
     public kapi_final_DTO kapisave(kapi_final_DTO kapi);
     public void kapidelete(int id);
     public kapi_final_DTO kapiupdate(int id, kapi_final_DTO kapi);
-}
+
 
 //-----------------------------------------------------------------------------------------------------------------------------
 //-----------------BSC_PROYECTO_INVENTARIO_RECURSOS -> SEBASTIÁN RIQUELME - MYSQL-------------------------------------------------------------------------
@@ -165,5 +167,16 @@ public interface ServiceBsc {
 
     public void delete(int id) {
         // Logic to delete a record by its id from the database
+
+
+  //-----------------------------------------------------------------------------------------------------------------------------   
+    //------------------------------------------------------------------------------------------------------------------------------------------------  
+    //bcs_plan_de_cuentas -> MATIAS MAULEN -> MYSQL    
+        
+        public List<Inventario_itemDTO> bcs_plan_de_cuentasFindAll();
+        public Optional<Inventario_itemDTO> bcs_plan_de_cuentasFindById(int id);
+        public Inventario_itemDTO bcs_plan_de_cuentasSave(Inventario_itemDTO inventario_item);
+        public Inventario_itemDTO bcs_plan_de_cuentaspdate(int id, Inventario_itemDTO inventario_item);
+        public void bcs_plan_de_cuentasDelete(int id);
     }
 
