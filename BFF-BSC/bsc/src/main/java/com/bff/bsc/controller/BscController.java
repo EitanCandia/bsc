@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bff.bsc.dto.SituacionDTO;
 
 
-import com.bff.bsc.dto.bsc_proyecto_inventario_recursosDTO;
+import com.bff.bsc.dto.ideasDTO;
 import com.bff.bsc.dto.bsc_plan_de_cuentasDTO;
 import com.bff.bsc.dto.Bsc_temaDTO;
 import com.bff.bsc.dto.DTOBscProyectoPedido;
@@ -702,66 +702,41 @@ public class BscController {
 // ------------------bsc_proyecto_inventario_recursos -> Sebastián Riquelme - MYSQL
 // MYSQL--------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------------------------------
-	@GetMapping(value = "/bsc_proyecto_inventario_recursosFindAll")
-	public List<Proyecto_inventario_recursosDTO> bsc_proyecto_inventario_recursosFindAll() {
-		return bsc_proyecto_inventario_recursosFindAll();
-	}
-
-
-	@GetMapping(value = "/bsc_proyecto_inventario_recursosFindById/{id}")
-	public Optional<Proyecto_inventario_recursosDTO> bsc_proyecto_inventario_recursosFindById(@PathVariable("id") int id) {
-    	return bsc_proyecto_inventario_recursosFindById(id);
-	}
-
-	@ResponseBody
-	@DeleteMapping("/bsc_proyecto_inventario_recursosDelete/{id}")
-	public int bsc_proyecto_inventario_recursosDelete(@PathVariable("id") int id) {
-    	Optional<Proyecto_inventario_recursosDTO> proyecto_inventario_recursos = bsc_proyecto_inventario_recursosFindById(id);
-    if (proyecto_inventario_recursos.isPresent()) {
-        bsc_proyecto_inventario_recursosDelete(id);
-        return 1;
-    } else {
-        return 0;
+@GetMapping("/proyecto_inventario_recursosFindAll")
+    public List<Proyecto_inventario_recursosDTO> proyectoInventarioRecursosFindAll() {
+        return bsc.bsc_proyecto_inventario_recursosFindAll();
     }
-	}
 
-	@ResponseBody
-	@PostMapping("/bsc_proyecto_inventario_recursosSave")
-	public Proyecto_inventario_recursosDTO agregarProyectoInventarioRecursos(@RequestBody Proyecto_inventario_recursosDTO proyecto_inventario_recursos) {
-    	return bsc_proyecto_inventario_recursosSave(proyecto_inventario_recursos);
-	}
+    @GetMapping("/proyecto_inventario_recursosFindById/{id}")
+    public Optional<Proyecto_inventario_recursosDTO> proyectoInventarioRecursosFindById(@PathVariable("id") int id) {
+        return bsc.bsc_proyecto_inventario_recursosFindById(id);
+    }
 
-	private Proyecto_inventario_recursosDTO bsc_proyecto_inventario_recursosSave(
-		Proyecto_inventario_recursosDTO proyecto_inventario_recursos) {
-			return null;
-	}
-	@ResponseBody
-	@PutMapping("/bsc_proyecto_inventario_recursosUpdate")
-	public Proyecto_inventario_recursosDTO updateProyectoInventarioRecursos(@Valid @NonNull @RequestBody Proyecto_inventario_recursosDTO proyecto_inventario_recursos) {
-    	Optional<Proyecto_inventario_recursosDTO> p = bsc_proyecto_inventario_recursosFindById(proyecto_inventario_recursos.getId());
-    	if (p.isPresent()) {
-        	return bsc_proyecto_inventario_recursosDelete(proyecto_inventario_recursos);
-    } else {
+    @PostMapping("/proyecto_inventario_recursosSave")
+    public Proyecto_inventario_recursosDTO proyectoInventarioRecursosSave(@RequestBody Proyecto_inventario_recursosDTO dto) {
+        return bsc.bsc_proyecto_inventario_recursosSave(dto);
+    }
+
+    @PutMapping("/proyecto_inventario_recursosUpdate/{id}")
+    public Proyecto_inventario_recursosDTO proyectoInventarioRecursosUpdate(@PathVariable("id") int id, @RequestBody Proyecto_inventario_recursosDTO dto) {
+        Optional<Proyecto_inventario_recursosDTO> data = bsc.bsc_proyecto_inventario_recursosFindById(id);
+        if(data.isPresent()) {
+            dto.setId(id);
+            return bsc.bsc_proyecto_inventario_recursosSave(dto);
+        }
         return null;
     }
-	}
 
-	private Proyecto_inventario_recursosDTO bsc_proyecto_inventario_recursosDelete(
-		@Valid Proyecto_inventario_recursosDTO proyecto_inventario_recursos) {
-			return null;
-	}
-	@ResponseBody
-	@PutMapping("/bsc_proyecto_inventario_recursosUpdate/{id}")
-	public Proyecto_inventario_recursosDTO updateProyectoInventarioRecursos(@Valid @NonNull @RequestBody Proyecto_inventario_recursosDTO proyecto_inventario_recursos, @PathVariable("id") int id) {
-    	Optional<Proyecto_inventario_recursosDTO> p = bsc_proyecto_inventario_recursosFindById(id);
-    	if (p.isPresent()) {
-        proyecto_inventario_recursos.setId(id);
-        return bsc.bsc_proyecto_inventario_recursosDelete(proyecto_inventario_recursos);
-    } else {
-        return null;
+    @DeleteMapping("/proyecto_inventario_recursosDelete/{id}")
+    public ResponseEntity<Void> proyectoInventarioRecursosDelete(@PathVariable("id") int id) {
+        Optional<Proyecto_inventario_recursosDTO> data = bsc.bsc_proyecto_inventario_recursosFindById(id);
+        if (data.isPresent()) {
+            bsc.Proyecto_inventario_recursosDelete(id);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
-	
-	}
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------	
 //------------------------------------------------------------------------------------------------------------------------------------------------	
@@ -808,13 +783,13 @@ public class BscController {
 	// --------
 	
 @GetMapping(value = "/ideasFindAll")
-    public List<ideasDTO> micro1FindAll()
+    public List<ideasDTO> ideasFindAll()
     {
 		return bsc.bsc_ideasFindAll(); 
     }
 	
 	@GetMapping(value = "/ideasFindById/{id}")
-    public Optional<ideasDTO> micro1FindById(@PathVariable("id") int id)
+    public Optional<ideasDTO> ideasFindById(@PathVariable("id") int id)
 	{
 		return bsc.bsc_ideasFindById(id);
 	}

@@ -151,10 +151,10 @@ public interface ServiceBsc {
 //-----------------BSC_PROYECTO_INVENTARIO_RECURSOS -> SEBASTIÁN RIQUELME - MYSQL-------------------------------------------------------------------------
 
 
-    public List<Proyecto_inventario_recursosDTO> findAll();
-    public Optional<Proyecto_inventario_recursosDTO> findById(int id);
-    public Proyecto_inventario_recursosDTO save(Proyecto_inventario_recursosDTO bsc_proyecto_inventario_recursos);
-    public void delete(int id);
+    public List<Proyecto_inventario_recursosDTO> bsc_proyecto_inventario_recursosFindAll();
+    public Optional<Proyecto_inventario_recursosDTO> bsc_proyecto_inventario_recursosFindById(int id);
+    public Proyecto_inventario_recursosDTO bsc_proyecto_inventario_recursosSave(Proyecto_inventario_recursosDTO bsc_proyecto_inventario_recursos);
+    public void Proyecto_inventario_recursosDelete(int id);
 
   //-----------------------------------------------------------------------------------------------------------------------------   
     //------------------------------------------------------------------------------------------------------------------------------------------------  

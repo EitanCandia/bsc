@@ -598,23 +598,23 @@ public ideasDTO bsc_ideasUpdate(int id, ideasDTO ideasDTO) {
 	// MYSQL--------------------------------------------------------
 
     @Override
-    public List<Proyecto_inventario_recursosDTO> findAll() {
+    public List<Proyecto_inventario_recursosDTO> bsc_proyecto_inventario_recursosFindAll() {
         return (List<Proyecto_inventario_recursosDTO>)data.findAll();
     }
 
     @Override
-    public Optional<Proyecto_inventario_recursosDTO> findById(int id) {
+    public Optional<Proyecto_inventario_recursosDTO> bsc_proyecto_inventario_recursosFindById(int id) {
         return data.findById(id);
     }
 
     @Override
-    public Proyecto_inventario_recursosDTO save(Proyecto_inventario_recursosDTO p) {
+    public Proyecto_inventario_recursosDTO bsc_proyecto_inventario_recursosSave(Proyecto_inventario_recursosDTO p) {
     	Proyecto_inventario_recursosDTO bsc_proyecto_inventario_recursos = data.save(p);
         return bsc_proyecto_inventario_recursos;
     }
 
     @Override
-    public void delete(int id){
+    public void Proyecto_inventario_recursosDelete(int id){
         data.deleteById(id);
     }
 
