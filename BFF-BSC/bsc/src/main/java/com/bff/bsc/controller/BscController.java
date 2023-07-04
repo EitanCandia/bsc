@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bff.bsc.dto.SituacionDTO;
 
+
+import com.bff.bsc.dto.bsc_proyecto_inventario_recursosDTO;
+import com.bff.bsc.dto.bsc_plan_de_cuentasDTO;
 import com.bff.bsc.dto.Bsc_temaDTO;
 import com.bff.bsc.dto.DTOBscProyectoPedido;
 import com.bff.bsc.dto.LugarDTO;
