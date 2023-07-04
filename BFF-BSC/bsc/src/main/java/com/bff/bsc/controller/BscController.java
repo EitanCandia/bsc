@@ -30,6 +30,7 @@ import com.bff.bsc.service.ServiceBsc;
 import com.bff.bsc.dto.TipoDocumentoDTO;
 import com.bff.bsc.dto.ProyectoDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
+import com.bff.bsc.dto.InventarioUnidadDTO;
 
 
 @RestController
@@ -533,7 +534,68 @@ public class BscController {
     return bsc.kpiMetaUpdate(id, kpiMeta);
 }
 
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------------------------------
+	// ------------------BSC_inventario_unidad -> Miguel Belmar -
+	// MYSQL--------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------------------------------
 
+	// OBTENER-GET
+	@GetMapping(value = "/bsc_inventario_unidadFindAll")
+	public List<InventarioUnidadDTO> bsc_inventario_unidadFindAll() {
+		return bsc.bsc_inventario_unidadFindAll();
+	}
+
+	// OBTENER-GET POR ID
+	@GetMapping(value = "/bsc_inventario_unidadFindById/{id}")
+	public Optional<InventarioUnidadDTO> bsc_inventario_unidadFindById(@PathVariable("id") int id) {
+		return bsc.bsc_inventario_unidadFindById(id);
+	}
+
+	// BORRAR-DELETE
+	@ResponseBody
+	@DeleteMapping("/bsc_inventario_unidadDelete/{id}")
+	public int bsc_inventario_unidadDelete(@PathVariable("id") int id) {
+		Optional<InventarioUnidadDTO> inventarioUnidad = bsc.bsc_inventario_unidadFindById(id);
+		if (inventarioUnidad.isPresent() == true) {
+			bsc.bsc_inventario_unidadDelete(id);
+			return 1;
+		} else
+			return 0;
+	}
+
+	// GUARDAR-POST
+	@ResponseBody
+	@PostMapping("/bsc_inventario_unidadSave")
+	public InventarioUnidadDTO agregarInventarioUnidad(@RequestBody InventarioUnidadDTO inventarioUnidad) {
+		return bsc.bsc_inventario_unidadSave(inventarioUnidad);
+	}
+
+	// ACTUALIZAR-PUT
+	@ResponseBody
+	@PutMapping(("/bsc_inventario_unidadUpdate"))
+	public InventarioUnidadDTO updateInventarioUnidad(
+			@Valid @NonNull @RequestBody InventarioUnidadDTO inventarioUnidad) {
+		Optional<InventarioUnidadDTO> iu = bsc.bsc_inventario_unidadFindById(inventarioUnidad.getId());
+		if (iu.isPresent() == true) {
+			return bsc.bsc_inventario_unidadSave(inventarioUnidad);
+		} else
+			return null;
+	}
+
+	@ResponseBody
+	@PutMapping(("/bsc_inventario_unidadUpdate/{id}"))
+	public InventarioUnidadDTO updateInventarioUnidad(@Valid @NonNull @RequestBody InventarioUnidadDTO inventarioUnidad,
+			@PathVariable("id") int id) {
+		Optional<InventarioUnidadDTO> iu = bsc.bsc_inventario_unidadFindById(id);
+		if (iu.isPresent() == true) {
+			inventarioUnidad.setId(id);
+			return bsc.bsc_inventario_unidadSave(inventarioUnidad);
+		} else
+			return null;
+	}
 	
 	
 }
