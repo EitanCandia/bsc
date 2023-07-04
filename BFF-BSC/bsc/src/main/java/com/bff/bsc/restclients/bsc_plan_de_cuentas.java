@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import com.bff.bsc.dto.bsc_plan_de_cuentasDTO;
-import com.bff.bsc.dto.ProyectoPersonaDTO;
 
 @FeignClient(name = "bsc_plan_de_cuentasClient", url = "${rest.endpoints.demoweb.url.bsc_plan_de_cuentas}")
 public interface bsc_plan_de_cuentas {
@@ -26,10 +25,10 @@ public interface bsc_plan_de_cuentas {
 	    public Optional<bsc_plan_de_cuentasDTO> findById(@PathVariable("id") int id);
 	    
 	    @ResponseBody @PostMapping(value = "/v1/bsc/bsc_plan_de_cuentas/REST", produces = "application/json")
-	    public bsc_plan_de_cuentasDTO save(bsc_plan_de_cuentas inventarioItem);
+	    public bsc_plan_de_cuentasDTO save(bsc_plan_de_cuentas bsc_plan_de_cuentas);
 	    
 	    @PutMapping(value = "/v1/bsc/bsc_plan_de_cuentas/REST/{id}", produces = "application/json")
-	    public bsc_plan_de_cuentasDTO update(@PathVariable("id") int id, @RequestBody bsc_plan_de_cuentas inventarioItemDTO);
+	    public bsc_plan_de_cuentasDTO update(@PathVariable("id") int id, @RequestBody bsc_plan_de_cuentas bsc_plan_de_cuentasDTO);
 	    
 	    @ResponseBody @DeleteMapping("/v1/bsc/bsc_plan_de_cuentas/REST/{id}")
 	    public void delete(@PathVariable("id") int id);

@@ -173,10 +173,10 @@ public interface ServiceBsc {
     //------------------------------------------------------------------------------------------------------------------------------------------------  
     //bcs_plan_de_cuentas -> MATIAS MAULEN -> MYSQL    
         
-        public List<Inventario_itemDTO> bcs_plan_de_cuentasFindAll();
-        public Optional<Inventario_itemDTO> bcs_plan_de_cuentasFindById(int id);
-        public Inventario_itemDTO bcs_plan_de_cuentasSave(Inventario_itemDTO inventario_item);
-        public Inventario_itemDTO bcs_plan_de_cuentaspdate(int id, Inventario_itemDTO inventario_item);
+        public List<bsc_plan_de_cuentasDTO> bcs_plan_de_cuentasFindAll();
+        public Optional<bsc_plan_de_cuentasDTO> bcs_plan_de_cuentasFindById(int id);
+        public bsc_plan_de_cuentasDTO bcs_plan_de_cuentasSave(bsc_plan_de_cuentasDTO bsc_plan_de_cuentas);
+        public bsc_plan_de_cuentasDTO bcs_plan_de_cuentasUpdate(int id, bsc_plan_de_cuentasDTO bsc_plan_de_cuentas);
         public void bcs_plan_de_cuentasDelete(int id);
     }
 

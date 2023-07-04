@@ -17,6 +17,7 @@ import com.bff.bsc.dto.ObjetivoDTO;
 import com.bff.bsc.dto.ProyectoDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
+import com.bff.bsc.dto.Proyecto_inventario_recursosDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
 import com.bff.bsc.dto.InventarioUnidadDTO;
 import com.bff.bsc.dto.kapi_final_DTO;
@@ -88,7 +89,7 @@ kapiMicro1 micro1;
 bsc_ProyectoActividad_TipoActividad proyecto_tipoactividad;
 
 @Autowired
-bsc_plan_de_cuentas;
+bsc_plan_de_cuentas bsc_plan_de_cuentas;
 
 //-------------------------------------------------------------------------------------------------------------------------------
 
@@ -509,6 +510,7 @@ public void bsc_tipo_documentodelete(long id) {
 	
 
 
+
 //-----------------------------------------------------------------------------------------------------------------------------   
 //-----------------------------------------------------------------------------------------------------------------------------    
 //------------------------bsc_plan_de_cuentas-> MATIAS MAULEN -> MYSQL--------------------------------------------------------
@@ -523,12 +525,12 @@ public Optional<bsc_plan_de_cuentasDTO> bsc_plan_de_cuentasFindById(int id) {
 }
 
 @Override
-public bsc_plan_de_cuentasDTO bcs_plan_de_cuentasSave(bsc_plan_de_cuentasDTO pc) {
+public bsc_plan_de_cuentasDTO bsc_inventario_itemSave(bsc_plan_de_cuentasDTO pc) {
 	bsc_plan_de_cuentasDTO bsc_plan_de_cuentas = bsc_plan_de_cuentas.save(pc);
-	return bcs_plan_de_cuentas;
+	return bsc_plan_de_cuentas;
 }
 @Override
-public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasUpdate(int id, bsc_plan_de_cuentasDTO bsc_plan_de_cuentas) {
+public Inventario_itemDTO bsc_plan_de_cuentasUpdate(int id, bsc_plan_de_cuentasDTO bsc_plan_de_cuentas) {
 	// TODO Auto-generated method stub
 	return null;
 }
