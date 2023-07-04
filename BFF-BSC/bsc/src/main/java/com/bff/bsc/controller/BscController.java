@@ -798,5 +798,58 @@ public class BscController {
 					    }
 
 
+
+	// ------------------------------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------------------------------
+	// ------------------BSC_Ideas -> Sebastian Sanhueza -
+	// MYSQL--------------------------------------------------------------------------------
+	// --------
+	
+@GetMapping(value = "/ideasFindAll")
+    public List<ideasDTO> micro1FindAll()
+    {
+		return bsc.bsc_ideasFindAll(); 
+    }
+	
+	@GetMapping(value = "/ideasFindById/{id}")
+    public Optional<ideasDTO> micro1FindById(@PathVariable("id") int id)
+	{
+		return bsc.bsc_ideasFindById(id);
+	}
+
+    @PostMapping(value = "/ideasSave")
+    public ideasDTO ideasSave(@RequestBody ideasDTO ideas) 
+    {
+    return bsc.bsc_ideasSave(ideas);}
+	
+    @DeleteMapping("/ideasDelete/{id}")
+    public void ideasdelete(@PathVariable int id) {
+        bsc.bsc_ideasDelete(id);
+    }
+
+    @ResponseBody
+@PutMapping(("/ideasUpdate"))
+public ideasDTO updateIdeas(
+        @Valid @NonNull @RequestBody ideasDTO ideas) {
+    Optional<ideasDTO> iu = bsc.bsc_ideasFindById(ideas.getId());
+    if (iu.isPresent() == true) {
+        return bsc.bsc_ideasSave(ideas);
+    } else
+        return null;
+}
+
+@ResponseBody
+@PutMapping(("/ideasUpdate/{id}"))
+public ideasDTO updateIdeas(@Valid @NonNull @RequestBody ideasDTO ideas,
+        @PathVariable("id") int id) {
+    Optional<ideasDTO> iu = bsc.bsc_ideasFindById(id);
+    if (iu.isPresent() == true) {
+        ideas.setId(id);
+        return bsc.bsc_ideasSave(ideas);
+    } else
+        return null;
+}
 						
 }
