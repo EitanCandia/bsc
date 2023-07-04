@@ -21,6 +21,7 @@ import com.bff.bsc.dto.Proyecto_inventario_recursosDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
 import com.bff.bsc.dto.InventarioUnidadDTO;
 import com.bff.bsc.dto.kapi_final_DTO;
+import com.bff.bsc.dto.proveedorDTO;
 import com.bff.bsc.dto.bsc_plan_de_cuentasDTO;
 import com.bff.bsc.dto.ideasDTO;
 import com.bff.bsc.dto.ProyectoActividad_TipoActividadDTO;
@@ -41,6 +42,7 @@ import com.bff.bsc.restclients.bsc_plan_de_cuentas;
 import com.bff.bsc.restclients.bsc_proyecto_inventario_recursos;
 import com.bff.bsc.restclients.bsc_inventario_unidad;
 import com.bff.bsc.restclients.kapiMicro1;
+import com.bff.bsc.restclients.proveedorMicro1;
 
 
 @Service
@@ -99,6 +101,8 @@ bsc_ProyectoActividad_TipoActividad proyecto_tipoactividad;
 @Autowired
 bsc_plan_de_cuentas plan_de_cuentas;
 
+@Autowired
+proveedorMicro1 micro2;
 //-------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------BSC_PROYECTO_ACTIVIDAD -> TOMAS OSORIO - MYSQL---------------------------------------------------------
@@ -616,6 +620,46 @@ public ideasDTO bsc_ideasUpdate(int id, ideasDTO ideasDTO) {
     @Override
     public void Proyecto_inventario_recursosDelete(int id){
         data.deleteById(id);
+    }
+
+
+
+
+
+
+
+
+
+
+
+	
+    @Override
+    public List<proveedorDTO> proveedorFindAll() {
+        // TODO Auto-generated method stub
+        return micro2.findAll();
+    }
+
+    @Override
+    public Optional<proveedorDTO> proveedorFindById(int id) {
+        // TODO Auto-generated method stub
+        return micro2.findById(id);
+    }
+
+    @Override
+    public proveedorDTO proveedorSave(proveedorDTO proveedor) {
+        // TODO Auto-generated method stub
+        return micro2.proveedorSave(proveedor);
+    }
+
+    @Override
+    public void proveedordelete(int id) {
+        micro2.proveedordelete(id);
+    }
+
+    @Override
+    public proveedorDTO proveedorUpdate(int id, proveedorDTO proveedor) {
+        // TODO Auto-generated method stub
+        return micro2.proveedorUpdate(id, proveedor);
     }
 
 

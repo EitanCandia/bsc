@@ -18,26 +18,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bff.bsc.dto.SituacionDTO;
-
-
-import com.bff.bsc.dto.ideasDTO;
-import com.bff.bsc.dto.bsc_plan_de_cuentasDTO;
 import com.bff.bsc.dto.Bsc_temaDTO;
 import com.bff.bsc.dto.DTOBscProyectoPedido;
+import com.bff.bsc.dto.InventarioUnidadDTO;
+import com.bff.bsc.dto.Inventario_itemDTO;
+import com.bff.bsc.dto.KpiMetaDTO;
 import com.bff.bsc.dto.LugarDTO;
 import com.bff.bsc.dto.ObjetivoDTO;
 import com.bff.bsc.dto.ProyectoActividad_TipoActividadDTO;
+import com.bff.bsc.dto.ProyectoDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
-import com.bff.bsc.dto.Inventario_itemDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
 import com.bff.bsc.dto.Proyecto_inventario_recursosDTO;
-import com.bff.bsc.service.ServiceBsc;
+import com.bff.bsc.dto.SituacionDTO;
 import com.bff.bsc.dto.TipoDocumentoDTO;
-import com.bff.bsc.dto.ProyectoDTO;
-import com.bff.bsc.dto.KpiMetaDTO;
-import com.bff.bsc.dto.InventarioUnidadDTO;
+import com.bff.bsc.dto.bsc_plan_de_cuentasDTO;
+import com.bff.bsc.dto.ideasDTO;
 import com.bff.bsc.dto.kapi_final_DTO;
+import com.bff.bsc.dto.proveedorDTO;
+import com.bff.bsc.service.ServiceBsc;
 
 @RestController
 @RequestMapping("/v1/bsc")
@@ -825,6 +824,39 @@ public ideasDTO updateIdeas(@Valid @NonNull @RequestBody ideasDTO ideas,
         return bsc.bsc_ideasSave(ideas);
     } else
         return null;
-}
-						
+		}
+
+
+
+
+
+
+
+
+	@GetMapping(value = "/proveedorFindAll")
+    public List<proveedorDTO> proveedorFindAll()
+    {
+		return bsc.proveedorFindAll(); 
+    }
+	
+	@GetMapping(value = "/proveedorFindById/{id}")
+    public Optional<proveedorDTO> proveedorFindById(@PathVariable("id") int id)
+	{
+		return bsc.proveedorFindById(id);
+	}
+
+    @PostMapping(value = "/proveedorSave")
+    public proveedorDTO proveedorSave(@RequestBody proveedorDTO proveedor) 
+    {
+    return bsc.proveedorSave(proveedor);}
+	
+    @DeleteMapping("/proveedorDelete/{id}")
+    public void proveedordelete(@PathVariable int id) {
+        bsc.proveedordelete(id);
+    }
+
+    @PutMapping(value = "/proveedorUpdate/{id}")
+    public proveedorDTO proveedorUpdate(@PathVariable("id") int id, @RequestBody proveedorDTO proveedor) {
+    return bsc.proveedorUpdate(id, proveedor);
+	}
 }

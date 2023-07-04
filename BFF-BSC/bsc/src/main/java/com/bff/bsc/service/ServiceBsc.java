@@ -19,6 +19,7 @@ import com.bff.bsc.dto.TipoDocumentoDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
 import com.bff.bsc.dto.InventarioUnidadDTO;
 import com.bff.bsc.dto.kapi_final_DTO;
+import com.bff.bsc.dto.proveedorDTO;
 import com.bff.bsc.dto.Proyecto_inventario_recursosDTO;
 import com.bff.bsc.dto.ProyectoActividad_TipoActividadDTO;
 
@@ -176,5 +177,13 @@ public ideasDTO bsc_ideasUpdate(int id, ideasDTO ideas);
 public void bsc_ideasDelete(int id);
 
 
+
+
+
+  public List<proveedorDTO> proveedorFindAll();
+    public Optional<proveedorDTO> proveedorFindById(int id);
+    public proveedorDTO proveedorSave(proveedorDTO proveedor);
+    public void proveedordelete(int id);
+    public proveedorDTO proveedorUpdate(int id, proveedorDTO proveedor);
 }
 
