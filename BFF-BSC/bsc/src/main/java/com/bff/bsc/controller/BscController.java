@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bff.bsc.dto.SituacionDTO;
+
 import com.bff.bsc.dto.Bsc_temaDTO;
 import com.bff.bsc.dto.DTOBscProyectoPedido;
 import com.bff.bsc.dto.LugarDTO;
@@ -698,4 +699,41 @@ public class BscController {
     }
 	
 	}
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------------------------------------------------------------------------	
+//------------------bsc_plan_de_cuentas -> MATIAS MAULEN - MYSQL--------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------		
+				    @GetMapping(value= "/bsc_plan_de_cuentasFindAll")
+					public List<bsc_plan_de_cuentasDTO> bsc_plan_de_cuentasFindAll(){
+						return bsc.bsc_plan_de_cuentasFindAll();
+					}
+					@GetMapping(value= "/bsc_plan_de_cuentasFindById/{id}") //READ-GET/id
+					public Optional<bsc_plan_de_cuentasDTO> bsc_plan_de_cuentasFindById(@PathVariable("id") int id) {
+					        return bsc.bsc_plan_de_cuentasFindById(id);
+					    }
+
+					
+						
+					
+					//GUARDAR-POST
+					@ResponseBody @PostMapping("/bsc_plan_de_cuentasSave")
+					public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasSave(@RequestBody bsc_plan_de_cuentasDTO pc) {
+						return bsc.bsc_plan_de_cuentasSave(pc);
+					}
+						
+					//ACTUALIZAR-PUT
+					@PutMapping(value = "/bsc_plan_de_cuentasUpdate/{id}")
+					public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasUpdate(@PathVariable("id") int id, @RequestBody bsc_plan_de_cuentasDTO pc) {
+					    return bsc.bsc_plan_de_cuentasUpdate(id, pc);
+					}
+					//BORRAR-DELETE POR ID 
+					@DeleteMapping(value = "/bsc_plan_de_cuentasDelete/{id}")
+					public ResponseEntity<Void> bsc_plan_de_cuentasDelete(@PathVariable("id") int id) {
+					    bsc.bsc_plan_de_cuentasDelete(id);
+					    return ResponseEntity.noContent().build();
+					    }
+
+
+						
 }
