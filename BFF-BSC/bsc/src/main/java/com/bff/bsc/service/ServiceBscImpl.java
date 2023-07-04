@@ -17,6 +17,7 @@ import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
 import com.bff.bsc.dto.InventarioUnidadDTO;
+import com.bff.bsc.dto.kapi_final_DTO;
 
 import com.bff.bsc.restclients.Bsc_situacion;
 import com.bff.bsc.restclients.Bsc_lugar;
@@ -30,6 +31,7 @@ import com.bff.bsc.restclients.bsc_tipo_documento;
 import com.bff.bsc.restclients.Bsc_proyecto;
 import com.bff.bsc.restclients.bsc_kpiMetaMicro1;
 import com.bff.bsc.restclients.bsc_inventario_unidad;
+import com.bff.bsc.restclients.kapiMicro1;
 
 
 @Service
@@ -73,6 +75,9 @@ bsc_kpiMetaMicro1 kpi_meta;
 
 @Autowired
 bsc_inventario_unidad inventarioUnidad;
+
+@Autowired
+kapiMicro1 micro1;
 //-------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------BSC_PROYECTO_ACTIVIDAD -> TOMAS OSORIO - MYSQL---------------------------------------------------------
@@ -419,7 +424,38 @@ public void bsc_tipo_documentodelete(long id) {
 	public void bsc_inventario_unidadDelete(int id) {
 		bsc_inventario_unidadDelete(id);
 	}
+//-------------------------------------------------------------------------------------------------------------------------------
 
+//------------------------BSC_KAPI -> TOMAS MELLA - MYSQL---------------------------------------------------------
+	@Override
+	public List<kapi_final_DTO> kapiFindAll() {
+		// TODO Auto-generated method stub
+		return micro1.findAll();
+	}
+
+	@Override
+	public Optional<kapi_final_DTO> kapiFindById(int id) {
+		// TODO Auto-generated method stub
+		return micro1.findById(id);
+	}
+
+	@Override
+	public kapi_final_DTO kapisave(kapi_final_DTO kapi) {
+		// TODO Auto-generated method stub
+		return micro1.kapisave(kapi);
+	}
+
+	@Override
+	public void kapidelete(int id) {
+		// TODO Auto-generated method stub
+		micro1.kapidelete(id);
+	}
+
+	@Override
+	public kapi_final_DTO kapiupdate(int id, kapi_final_DTO kapi) {
+		// TODO Auto-generated method stub
+		return micro1.kapiupdate(id, kapi);
+	}
 	
 
 
