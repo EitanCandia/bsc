@@ -15,6 +15,7 @@ import com.bff.bsc.dto.Proyecto_ActividadDTO;
 import com.bff.bsc.dto.ProyectoDTO;
 import com.bff.bsc.dto.TipoDocumentoDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
+import com.bff.bsc.dto.InventarioUnidadDTO;
 
 public interface ServiceBsc {
 	
@@ -108,6 +109,18 @@ public interface ServiceBsc {
     public KpiMetaDTO kpiMetaSave(KpiMetaDTO kpiMeta);
     public void kpiMetadelete(int id);
     public KpiMetaDTO kpiMetaUpdate(int id, KpiMetaDTO kpiMeta);
+//-----------------------------------------------------------------------------------------------------------------------------   
+  //------------------------------------------------------------------------------------------------------------------------------------------------  
+   // BSC-proyecto inventario unidad Miguel Belmar -> MYSQL
 
-      
+    public List<InventarioUnidadDTO> bsc_inventario_unidadFindAll();
+
+    public Optional<InventarioUnidadDTO> bsc_inventario_unidadFindById(int id);
+
+    public InventarioUnidadDTO bsc_inventario_unidadSave(InventarioUnidadDTO inventarioUnidad);
+
+    public void bsc_inventario_unidadDelete(int id);
+
+    public InventarioUnidadDTO bsc_inventario_unidadUpdate(int id, InventarioUnidadDTO inventarioUnidad);
+	
 }
