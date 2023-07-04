@@ -34,6 +34,7 @@ import com.bff.bsc.restclients.bsc_ProyectoActividad_TipoActividad;
 import com.bff.bsc.restclients.bsc_tipo_documento;
 import com.bff.bsc.restclients.Bsc_proyecto;
 import com.bff.bsc.restclients.bsc_kpiMetaMicro1;
+import com.bff.bsc.restclients.bsc_plan_de_cuentas;
 import com.bff.bsc.restclients.bsc_inventario_unidad;
 import com.bff.bsc.restclients.kapiMicro1;
 
@@ -85,6 +86,10 @@ kapiMicro1 micro1;
 
 @Autowired
 bsc_ProyectoActividad_TipoActividad proyecto_tipoactividad;
+
+@Autowired
+bsc_plan_de_cuentas;
+
 //-------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------BSC_PROYECTO_ACTIVIDAD -> TOMAS OSORIO - MYSQL---------------------------------------------------------
@@ -518,9 +523,9 @@ public Optional<bsc_plan_de_cuentasDTO> bsc_plan_de_cuentasFindById(int id) {
 }
 
 @Override
-public bsc_plan_de_cuentasDTO bsc_inventario_itemSave(bsc_plan_de_cuentasDTO pc) {
+public bsc_plan_de_cuentasDTO bcs_plan_de_cuentasSave(bsc_plan_de_cuentasDTO pc) {
 	bsc_plan_de_cuentasDTO bsc_plan_de_cuentas = bsc_plan_de_cuentas.save(pc);
-	return inventarioItem;
+	return bcs_plan_de_cuentas;
 }
 @Override
 public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasUpdate(int id, bsc_plan_de_cuentasDTO bsc_plan_de_cuentas) {
