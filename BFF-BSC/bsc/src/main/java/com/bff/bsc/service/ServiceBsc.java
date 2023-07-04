@@ -16,6 +16,7 @@ import com.bff.bsc.dto.ProyectoDTO;
 import com.bff.bsc.dto.TipoDocumentoDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
 import com.bff.bsc.dto.InventarioUnidadDTO;
+import com.bff.bsc.dto.kapi_final_DTO;
 
 public interface ServiceBsc {
 	
@@ -122,5 +123,13 @@ public interface ServiceBsc {
     public void bsc_inventario_unidadDelete(int id);
 
     public InventarioUnidadDTO bsc_inventario_unidadUpdate(int id, InventarioUnidadDTO inventarioUnidad);
-	
+
+//-----------------------------------------------------------------------------------------------------------------------------    
+//------------------------------------------------------------------------------------------------------------------------------------------------    
+//BSC_KAPI -> TOMAS MELLA - MYSQL
+    public List<kapi_final_DTO> kapiFindAll();
+    public Optional<kapi_final_DTO> kapiFindById(int id);
+    public kapi_final_DTO kapisave(kapi_final_DTO kapi);
+    public void kapidelete(int id);
+    public kapi_final_DTO kapiupdate(int id, kapi_final_DTO kapi);
 }
