@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.bff.bsc.dto.Proyecto_inventario_recursosDTO;
 
+
+
+
 @FeignClient(name = "inventarioUnidadMicro", url = "${rest.endpoints.demoweb.url.bsc_inventario_unidad}")
 public interface bsc_proyecto_inventario_recursos {
 
