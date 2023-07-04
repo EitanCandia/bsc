@@ -1,9 +1,7 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=8d6ddc529dd88295c2b879f1ddd6ece28967765e
 eclipse.preferences.version=1
 org.eclipse.jdt.apt.aptEnabled=true
-<<<<<<< HEAD
 org.eclipse.jdt.apt.genSrcDir=target\\generated-sources\\annotations
 org.eclipse.jdt.apt.genTestSrcDir=target\\generated-test-sources\\test-annotations
-=======
-org.eclipse.jdt.apt.genSrcDir=target/generated-sources/annotations
-org.eclipse.jdt.apt.genTestSrcDir=target/generated-test-sources/test-annotations
->>>>>>> 8d6ddc529dd88295c2b879f1ddd6ece28967765e

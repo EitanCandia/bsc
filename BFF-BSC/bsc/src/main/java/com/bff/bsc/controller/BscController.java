@@ -27,6 +27,7 @@ import com.bff.bsc.dto.Bsc_temaDTO;
 import com.bff.bsc.dto.DTOBscProyectoPedido;
 import com.bff.bsc.dto.LugarDTO;
 import com.bff.bsc.dto.ObjetivoDTO;
+import com.bff.bsc.dto.ProyectoActividad_TipoActividadDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Inventario_itemDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
@@ -600,6 +601,64 @@ public class BscController {
 		} else
 			return null;
 	}
+	
+	
+	//------------------------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------------------------------------	
+	//------------------------------------------------------------------------------------------------------------------------------------------------	
+	//------------------BSC_PROYECTO_ACTIVIDAD_TIPOACTIVIDAD -> ALEJANDRO VILLALOBOS - MYSQL--------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	  // OBTENER http://localhost:8080/v1/bsc/micro1FindAll
+		@GetMapping(value = "/micro1FindAll")
+	    public List<ProyectoActividad_TipoActividadDTO> micro1FindAll()
+	    {
+			return bsc.micro1FindAll(); 
+	    }
+		
+		 // OBTENER POR ID http://localhost:8080/v1/bsc/micro1FindById/3
+		@GetMapping(value = "/micro1FindById/{id}")
+	    public Optional<ProyectoActividad_TipoActividadDTO> micro1FindById(@PathVariable("id") int id)
+		{
+			return bsc.micro1FindById(id);
+		}
+		
+		 //BORRAR-DELETE POR ID http://localhost:8080/v1/bsc/bsc_proyecto_actividad_tipoactividadDelete/3
+	    @ResponseBody @DeleteMapping("/bsc_proyecto_actividad_tipoactividadDelete/{id}")
+	    public int bsc_proyecto_actividad_tipoactividadDelete(@PathVariable("id") int id) {
+	    	Optional<ProyectoActividad_TipoActividadDTO> proyecto_actividadtipo = bsc.micro1FindById(id);
+	    	if (proyecto_actividadtipo.isPresent()==true) {
+	    		bsc.micro1Delete(id);
+	    		return 1;
+	    	}else return 0;
+	    }
+	    
+	    
+		//GUARDAR-POST http://localhost:8080/v1/bsc/bsc_proyecto_actividad_tipoactividadSave
+		@ResponseBody @PostMapping("/bsc_proyecto_actividad_tipoactividadSave")
+		public ProyectoActividad_TipoActividadDTO agregarProyectoActividadtipo(@RequestBody ProyectoActividad_TipoActividadDTO proyectoActividad) {
+			return bsc.micro1Save(proyectoActividad);
+		}
+		
+		
+		//ACTUALIZAR-PUT http://localhost:8080/v1/bsc/bsc_proyecto_actividad_tipoactividadUpdate
+	    @ResponseBody 
+	    @PutMapping("/bsc_proyecto_actividad_tipoactividadUpdate")
+	    public ProyectoActividad_TipoActividadDTO updateProyecto_ActividadById(@Valid @NonNull @RequestBody ProyectoActividad_TipoActividadDTO proyectoActividad) {
+	    	Optional<ProyectoActividad_TipoActividadDTO> proyecto_actividad = bsc.micro1FindById(proyectoActividad.getId());
+	    	if (proyecto_actividad.isPresent()) {
+	    		return bsc.micro1Save(proyectoActividad);
+	    	} else {
+	    		return null;
+	    	}
+	    }
+	
+	
+	
+	
+	
+	
 //------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------	
@@ -609,31 +668,31 @@ public class BscController {
 	@GetMapping(value = "/kapiFindAll")
     public List<kapi_final_DTO> kapiFindAll()
     {
-		return serviceBff1.kapiFindAll(); 
+		return bsc.kapiFindAll(); 
     }
 	
 	@GetMapping(value = "/kapiFindById/{id}")
     public Optional<kapi_final_DTO> kapiFindById(@PathVariable("id") int id)
 	{
-		return serviceBff1.kapiFindById(id);
+		return bsc.kapiFindById(id);
 	}
 	
     @PostMapping(value = "/kapisave")
     public kapi_final_DTO kapisave(@RequestBody kapi_final_DTO kapi)
     {
-    	return serviceBff1.kapisave(kapi);
+    	return bsc.kapisave(kapi);
     }
 
     @DeleteMapping(value = "/kapidelete/{id}")
     public void kapidelete(@PathVariable int id)
     {
-    	serviceBff1.kapidelete(id);
+    	bsc.kapidelete(id);
     }
 	
     @PutMapping(value = "/kapiupdate/{id}")
     public kapi_final_DTO kapiupdate(@PathVariable ("id") int id,@RequestBody kapi_final_DTO kapi)
     {
-    	return serviceBff1.kapiupdate(id, kapi);
+    	return bsc.kapiupdate(id, kapi);
     }
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------------------------------

@@ -8,17 +8,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bff.bsc.dto.SituacionDTO;
+import com.bff.bsc.dto.TipoDocumentoDTO;
 import com.bff.bsc.dto.Bsc_temaDTO;
 import com.bff.bsc.dto.DTOBscProyectoPedido;
 import com.bff.bsc.dto.Inventario_itemDTO;
 import com.bff.bsc.dto.LugarDTO;
 import com.bff.bsc.dto.ObjetivoDTO;
+import com.bff.bsc.dto.ProyectoDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
 import com.bff.bsc.dto.InventarioUnidadDTO;
 import com.bff.bsc.dto.kapi_final_DTO;
 import com.bff.bsc.dto.bsc_plan_de_cuentasDTO;
+import com.bff.bsc.dto.ProyectoActividad_TipoActividadDTO;
 import com.bff.bsc.restclients.Bsc_situacion;
 import com.bff.bsc.restclients.Bsc_lugar;
 import com.bff.bsc.restclients.Bsc_objetivo;
@@ -27,6 +30,7 @@ import com.bff.bsc.restclients.Bsc_proyecto_pedido;
 import com.bff.bsc.restclients.Bsc_inventario_item;
 import com.bff.bsc.restclients.Bsc_r_Proyecto_Persona;
 import com.bff.bsc.restclients.Bsc_tema;
+import com.bff.bsc.restclients.bsc_ProyectoActividad_TipoActividad;
 import com.bff.bsc.restclients.bsc_tipo_documento;
 import com.bff.bsc.restclients.Bsc_proyecto;
 import com.bff.bsc.restclients.bsc_kpiMetaMicro1;
@@ -78,6 +82,9 @@ bsc_inventario_unidad inventarioUnidad;
 
 @Autowired
 kapiMicro1 micro1;
+
+@Autowired
+bsc_ProyectoActividad_TipoActividad proyecto_tipoactividad;
 //-------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------BSC_PROYECTO_ACTIVIDAD -> TOMAS OSORIO - MYSQL---------------------------------------------------------
@@ -424,6 +431,44 @@ public void bsc_tipo_documentodelete(long id) {
 	public void bsc_inventario_unidadDelete(int id) {
 		bsc_inventario_unidadDelete(id);
 	}
+	
+	
+	//-------------------------------------------------------------------------------------------------------------------------------
+
+	//------------------------BSC_PROYECTO_ACTIVIDAD_TIPOACTIVIDAD -> ALEJANNDRO VILLALOBOS - MYSQL---------------------------------------------------------
+
+	
+	
+	@Override
+	public List<ProyectoActividad_TipoActividadDTO> micro1FindAll() {
+		// TODO Auto-generated method stub
+		return proyecto_tipoactividad.findAll();
+	}
+
+	@Override
+	public Optional<ProyectoActividad_TipoActividadDTO> micro1FindById(int id) {
+		// TODO Auto-generated method stub
+		return proyecto_tipoactividad.findById(id);
+	}
+	
+	//BORRAR-DELETE
+	@Override
+	public void micro1Delete(int id) {
+		proyecto_tipoactividad.delete(id);
+	}
+	
+	//GUARDAR-ACTUALIZAR POST-PUT
+	@Override
+	public ProyectoActividad_TipoActividadDTO micro1Save(ProyectoActividad_TipoActividadDTO pa) {
+		ProyectoActividad_TipoActividadDTO proyectoactividad = proyecto_tipoactividad.save(pa);
+		return proyectoactividad;
+	}
+	
+	
+	
+	
+	
+	
 //-------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------BSC_KAPI -> TOMAS MELLA - MYSQL---------------------------------------------------------

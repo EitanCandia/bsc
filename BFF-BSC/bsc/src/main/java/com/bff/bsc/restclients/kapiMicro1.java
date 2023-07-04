@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.example.demo.dto.kapi_final_DTO;
+import com.bff.bsc.dto.kapi_final_DTO;
 
 @FeignClient(name = "kapiClient", url = "${rest.endpoints.demoweb.url.kapi}")
 public interface kapiMicro1 {

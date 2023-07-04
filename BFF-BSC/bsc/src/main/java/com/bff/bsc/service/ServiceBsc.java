@@ -17,6 +17,7 @@ import com.bff.bsc.dto.TipoDocumentoDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
 import com.bff.bsc.dto.InventarioUnidadDTO;
 import com.bff.bsc.dto.kapi_final_DTO;
+import com.bff.bsc.dto.ProyectoActividad_TipoActividadDTO;
 
 public interface ServiceBsc {
 	
@@ -123,6 +124,15 @@ public interface ServiceBsc {
     public void bsc_inventario_unidadDelete(int id);
 
     public InventarioUnidadDTO bsc_inventario_unidadUpdate(int id, InventarioUnidadDTO inventarioUnidad);
+    
+  //BSC_PROYECTO_ACTIVIDAD_TIPOACTIVIDAD -> ALEJANDRO VILLALOBOS - MYSQL
+    
+    public List<ProyectoActividad_TipoActividadDTO> micro1FindAll();
+    public Optional<ProyectoActividad_TipoActividadDTO> micro1FindById(int id);
+    public ProyectoActividad_TipoActividadDTO micro1Save(ProyectoActividad_TipoActividadDTO proyecto);
+    public void micro1Delete(int id);
+    
+    
 
 //-----------------------------------------------------------------------------------------------------------------------------    
 //------------------------------------------------------------------------------------------------------------------------------------------------    
