@@ -1,4 +1,4 @@
-package cl.thinkcloud.boxplanner.crud.dto;
+package com.bff.bsc.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
