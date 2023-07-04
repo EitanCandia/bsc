@@ -38,6 +38,7 @@ import com.bff.bsc.restclients.bsc_tipo_documento;
 import com.bff.bsc.restclients.Bsc_proyecto;
 import com.bff.bsc.restclients.bsc_kpiMetaMicro1;
 import com.bff.bsc.restclients.bsc_plan_de_cuentas;
+import com.bff.bsc.restclients.bsc_proyecto_inventario_recursos;
 import com.bff.bsc.restclients.bsc_inventario_unidad;
 import com.bff.bsc.restclients.kapiMicro1;
 
@@ -76,6 +77,8 @@ Bsc_inventario_item inventario_item;
 Bsc_r_Proyecto_Persona proyecto_persona;
 
 @Autowired
+bsc_proyecto_inventario_recursos data;
+@Autowired
 Bsc_proyecto proyecto;
 
 @Autowired
@@ -94,7 +97,7 @@ kapiMicro1 micro1;
 bsc_ProyectoActividad_TipoActividad proyecto_tipoactividad;
 
 @Autowired
-bsc_plan_de_cuentas bsc_plan_de_cuentas;
+bsc_plan_de_cuentas plan_de_cuentas;
 
 //-------------------------------------------------------------------------------------------------------------------------------
 
@@ -521,17 +524,17 @@ public void bsc_tipo_documentodelete(long id) {
 //------------------------bsc_plan_de_cuentas-> MATIAS MAULEN -> MYSQL--------------------------------------------------------
 @Override
 public List<bsc_plan_de_cuentasDTO> bsc_plan_de_cuentasFindAll() {
-	return bsc_plan_de_cuentas.findAll();
+	return plan_de_cuentas.findAll();
 }
 
 @Override
 public Optional<bsc_plan_de_cuentasDTO> bsc_plan_de_cuentasFindById(int id) {
-	return bsc_plan_de_cuentas.findById(id);
+	return plan_de_cuentas.findById(id);
 }
 
 @Override
 public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasSave(bsc_plan_de_cuentasDTO pc) {
-    bsc_plan_de_cuentasDTO savedPlan = bsc_plan_de_cuentas.save(pc);
+    bsc_plan_de_cuentasDTO savedPlan = plan_de_cuentas.save(pc);
     return savedPlan;
 }
 
@@ -543,7 +546,7 @@ public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasUpdate(int id, bsc_plan_de_cuen
 
 @Override
 public void bsc_plan_de_cuentasDelete(int id) {
-	bsc_plan_de_cuentas.delete(id);
+	plan_de_cuentas.delete(id);
 	
 }
 
@@ -578,6 +581,42 @@ public ideasDTO bsc_ideasUpdate(int id, ideasDTO ideasDTO) {
     // TODO Auto-generated method stub
     return ideas.update(id, ideas);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// -----------------------------------------------------------------------------------------------------------------------------
+	// ------------------------BSC_Proyecto_inventario_recursos -> Sebastian Riquelme ->
+	// MYSQL--------------------------------------------------------
+
+    @Override
+    public List<Proyecto_inventario_recursosDTO> findAll() {
+        return (List<Proyecto_inventario_recursosDTO>)data.findAll();
+    }
+
+    @Override
+    public Optional<Proyecto_inventario_recursosDTO> findById(int id) {
+        return data.findById(id);
+    }
+
+    @Override
+    public Proyecto_inventario_recursosDTO save(Proyecto_inventario_recursosDTO p) {
+    	Proyecto_inventario_recursosDTO bsc_proyecto_inventario_recursos = data.save(p);
+        return bsc_proyecto_inventario_recursos;
+    }
+
+    @Override
+    public void delete(int id){
+        data.deleteById(id);
+    }
 
 
 }
