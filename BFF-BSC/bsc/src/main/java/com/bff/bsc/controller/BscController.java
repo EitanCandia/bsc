@@ -31,7 +31,7 @@ import com.bff.bsc.dto.TipoDocumentoDTO;
 import com.bff.bsc.dto.ProyectoDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
 import com.bff.bsc.dto.InventarioUnidadDTO;
-
+import com.bff.bsc.dto.kapi_final_DTO;
 
 @RestController
 @RequestMapping("/v1/bsc")
@@ -596,6 +596,106 @@ public class BscController {
 		} else
 			return null;
 	}
+//------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------------------------------------------------------------------------	
+//------------------BSC_kapi -> TOMAS MELLA - MYSQL--------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------
+	@GetMapping(value = "/kapiFindAll")
+    public List<kapi_final_DTO> kapiFindAll()
+    {
+		return serviceBff1.kapiFindAll(); 
+    }
 	
+	@GetMapping(value = "/kapiFindById/{id}")
+    public Optional<kapi_final_DTO> kapiFindById(@PathVariable("id") int id)
+	{
+		return serviceBff1.kapiFindById(id);
+	}
 	
+    @PostMapping(value = "/kapisave")
+    public kapi_final_DTO kapisave(@RequestBody kapi_final_DTO kapi)
+    {
+    	return serviceBff1.kapisave(kapi);
+    }
+
+    @DeleteMapping(value = "/kapidelete/{id}")
+    public void kapidelete(@PathVariable int id)
+    {
+    	serviceBff1.kapidelete(id);
+    }
+	
+    @PutMapping(value = "/kapiupdate/{id}")
+    public kapi_final_DTO kapiupdate(@PathVariable ("id") int id,@RequestBody kapi_final_DTO kapi)
+    {
+    	return serviceBff1.kapiupdate(id, kapi);
+    }
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+// ------------------bsc_proyecto_inventario_recursos -> Sebastián Riquelme - MYSQL
+// MYSQL--------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+	@GetMapping(value = "/bsc_proyecto_inventario_recursosFindAll")
+	public List<Proyecto_inventario_recursosDTO> bsc_proyecto_inventario_recursosFindAll() {
+		return bsc_proyecto_inventario_recursosFindAll();
+	}
+
+
+	@GetMapping(value = "/bsc_proyecto_inventario_recursosFindById/{id}")
+	public Optional<Proyecto_inventario_recursosDTO> bsc_proyecto_inventario_recursosFindById(@PathVariable("id") int id) {
+    	return bsc_proyecto_inventario_recursosFindById(id);
+	}
+
+	@ResponseBody
+	@DeleteMapping("/bsc_proyecto_inventario_recursosDelete/{id}")
+	public int bsc_proyecto_inventario_recursosDelete(@PathVariable("id") int id) {
+    	Optional<Proyecto_inventario_recursosDTO> proyecto_inventario_recursos = bsc_proyecto_inventario_recursosFindById(id);
+    if (proyecto_inventario_recursos.isPresent()) {
+        bsc_proyecto_inventario_recursosDelete(id);
+        return 1;
+    } else {
+        return 0;
+    }
+	}
+
+	@ResponseBody
+	@PostMapping("/bsc_proyecto_inventario_recursosSave")
+	public Proyecto_inventario_recursosDTO agregarProyectoInventarioRecursos(@RequestBody Proyecto_inventario_recursosDTO proyecto_inventario_recursos) {
+    	return bsc_proyecto_inventario_recursosSave(proyecto_inventario_recursos);
+	}
+
+	private Proyecto_inventario_recursosDTO bsc_proyecto_inventario_recursosSave(
+		Proyecto_inventario_recursosDTO proyecto_inventario_recursos) {
+			return null;
+	}
+	@ResponseBody
+	@PutMapping("/bsc_proyecto_inventario_recursosUpdate")
+	public Proyecto_inventario_recursosDTO updateProyectoInventarioRecursos(@Valid @NonNull @RequestBody Proyecto_inventario_recursosDTO proyecto_inventario_recursos) {
+    	Optional<Proyecto_inventario_recursosDTO> p = bsc_proyecto_inventario_recursosFindById(proyecto_inventario_recursos.getId());
+    	if (p.isPresent()) {
+        	return bsc_proyecto_inventario_recursosDelete(proyecto_inventario_recursos);
+    } else {
+        return null;
+    }
+	}
+
+	private Proyecto_inventario_recursosDTO bsc_proyecto_inventario_recursosDelete(
+		@Valid Proyecto_inventario_recursosDTO proyecto_inventario_recursos) {
+			return null;
+	}
+	@ResponseBody
+	@PutMapping("/bsc_proyecto_inventario_recursosUpdate/{id}")
+	public Proyecto_inventario_recursosDTO updateProyectoInventarioRecursos(@Valid @NonNull @RequestBody Proyecto_inventario_recursosDTO proyecto_inventario_recursos, @PathVariable("id") int id) {
+    	Optional<Proyecto_inventario_recursosDTO> p = bsc_proyecto_inventario_recursosFindById(id);
+    	if (p.isPresent()) {
+        proyecto_inventario_recursos.setId(id);
+        return bsc.bsc_proyecto_inventario_recursosDelete(proyecto_inventario_recursos);
+    } else {
+        return null;
+    }
+	
+	}
 }
