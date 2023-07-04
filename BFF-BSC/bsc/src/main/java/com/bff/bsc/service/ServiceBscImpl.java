@@ -541,5 +541,37 @@ public void bsc_plan_de_cuentasDelete(int id) {
 	
 }
 
+// -----------------------------------------------------------------------------------------------------------------------------
+	// ------------------------BSC_ideas -> Sebastian Sanhueza ->
+	// MYSQL--------------------------------------------------------
+
+	@Override
+	public List<ideasDTO> bsc_ideasFindAll() {
+		// TODO Auto-generated method stub
+		return ideas.findAll();
+	}
+
+	@Override
+	public Optional<ideasDTO> bsc_ideasFindById(int id) {
+		// TODO Auto-generated method stub
+		return ideas.findById(id);
+	}
+     
+	@Override
+public ideasDTO bsc_ideasSave(ideasDTO ideasDTO) {
+	// TODO Auto-generated method stub
+    return ideas.save(ideasDTO);
+}
+    @Override
+    public void bsc_ideasDelete(int id) {
+		ideas.delete(id);
+    }
+
+  @Override
+public ideasDTO bsc_ideasUpdate(int id, ideasDTO ideasDTO) {
+    // TODO Auto-generated method stub
+    return ideas.update(id, ideas);
+}
+
 
 }
