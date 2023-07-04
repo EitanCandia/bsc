@@ -178,5 +178,16 @@ public interface ServiceBsc {
         public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasSave(bsc_plan_de_cuentasDTO bsc_plan_de_cuentas);
         public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasUpdate(int id, bsc_plan_de_cuentasDTO bsc_plan_de_cuentas);
         public void bsc_plan_de_cuentasDelete(int id);
-    }
+   
+	//-----------------------------------------------------------------------------------------------------------------------------   
+  //------------------------------------------------------------------------------------------------------------------------------------------------  
+   // BSC-proyecto IDEAS Sebastian Sanhueza -> MYSQL
+public List<ideasDTO> bsc_ideasFindAll();
+public Optional<ideasDTO> bsc_ideasFindById(int id);
+public ideasDTO bsc_ideasSave(ideasDTO ideas);
+public ideasDTO bsc_ideasUpdate(int id, ideasDTO ideas);
+public void bsc_ideasDelete(int id);
+
+
+}
 
