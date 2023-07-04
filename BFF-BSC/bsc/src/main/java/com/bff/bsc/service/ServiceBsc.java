@@ -133,3 +133,27 @@ public interface ServiceBsc {
     public void kapidelete(int id);
     public kapi_final_DTO kapiupdate(int id, kapi_final_DTO kapi);
 }
+
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------BSC_PROYECTO_INVENTARIO_RECURSOS -> SEBASTIÁN RIQUELME - MYSQL-------------------------------------------------------------------------
+
+
+    public List<Proyecto_inventario_recursosDTO> findAll() {
+		return bsc_proyecto_inventario_recursos.findAll();
+        // Logic to retrieve all records from the database and convert them to Proyecto_inventario_recursosDTO objects
+    }
+
+    public Optional<Proyecto_inventario_recursosDTO> findById(int id) {
+		return bsc_proyecto_inventario_recursos.findById(id);
+        // Logic to find a record by its id in the database and convert it to a Proyecto_inventario_recursosDTO object
+    }
+
+    public Proyecto_inventario_recursosDTO save(Proyecto_inventario_recursosDTO proyecto_inventario_recursosDTO) {
+		return bsc_proyecto_inventario_recursos.save(proyecto_inventario_recursosDTO);
+        // Logic to save the Proyecto_inventario_recursosDTO object to the database and return the saved object
+    }
+
+    public void delete(int id) {
+        // Logic to delete a record by its id from the database
+    }
+
