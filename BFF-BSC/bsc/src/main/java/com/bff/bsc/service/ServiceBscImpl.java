@@ -525,12 +525,12 @@ public Optional<bsc_plan_de_cuentasDTO> bsc_plan_de_cuentasFindById(int id) {
 }
 
 @Override
-public bsc_plan_de_cuentasDTO bsc_inventario_itemSave(bsc_plan_de_cuentasDTO pc) {
-	bsc_plan_de_cuentasDTO bsc_plan_de_cuentas = bsc_plan_de_cuentas.save(pc);
+public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasSave(bsc_plan_de_cuentasDTO pc) {
+	bsc_plan_de_cuentasDTO bsc_plan_de_cuentas = bsc_plan_de_cuentasSave(pc);
 	return bsc_plan_de_cuentas;
 }
 @Override
-public Inventario_itemDTO bsc_plan_de_cuentasUpdate(int id, bsc_plan_de_cuentasDTO bsc_plan_de_cuentas) {
+public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasUpdate(int id, bsc_plan_de_cuentasDTO bsc_plan_de_cuentas) {
 	// TODO Auto-generated method stub
 	return null;
 }

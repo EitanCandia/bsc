@@ -31,6 +31,7 @@ import com.bff.bsc.dto.ProyectoActividad_TipoActividadDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Inventario_itemDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
+import com.bff.bsc.dto.Proyecto_inventario_recursosDTO;
 import com.bff.bsc.service.ServiceBsc;
 import com.bff.bsc.dto.TipoDocumentoDTO;
 import com.bff.bsc.dto.ProyectoDTO;

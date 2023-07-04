@@ -171,12 +171,12 @@ public interface ServiceBsc {
 
   //-----------------------------------------------------------------------------------------------------------------------------   
     //------------------------------------------------------------------------------------------------------------------------------------------------  
-    //bcs_plan_de_cuentas -> MATIAS MAULEN -> MYSQL    
+    //bsc_plan_de_cuentasDelete -> MATIAS MAULEN -> MYSQL    
         
-        public List<bsc_plan_de_cuentasDTO> bcs_plan_de_cuentasFindAll();
-        public Optional<bsc_plan_de_cuentasDTO> bcs_plan_de_cuentasFindById(int id);
-        public bsc_plan_de_cuentasDTO bcs_plan_de_cuentasSave(bsc_plan_de_cuentasDTO bsc_plan_de_cuentas);
-        public bsc_plan_de_cuentasDTO bcs_plan_de_cuentasUpdate(int id, bsc_plan_de_cuentasDTO bsc_plan_de_cuentas);
-        public void bcs_plan_de_cuentasDelete(int id);
+        public List<bsc_plan_de_cuentasDTO> bsc_plan_de_cuentasFindAll();
+        public Optional<bsc_plan_de_cuentasDTO> bsc_plan_de_cuentasFindById(int id);
+        public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasSave(bsc_plan_de_cuentasDTO bsc_plan_de_cuentas);
+        public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasUpdate(int id, bsc_plan_de_cuentasDTO bsc_plan_de_cuentas);
+        public void bsc_plan_de_cuentasDelete(int id);
     }
 
