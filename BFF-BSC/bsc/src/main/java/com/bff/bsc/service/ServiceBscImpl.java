@@ -16,7 +16,7 @@ import com.bff.bsc.dto.ObjetivoDTO;
 import com.bff.bsc.dto.ProyectoPersonaDTO;
 import com.bff.bsc.dto.Proyecto_ActividadDTO;
 import com.bff.bsc.dto.KpiMetaDTO;
-
+import com.bff.bsc.dto.InventarioUnidadDTO;
 
 import com.bff.bsc.restclients.Bsc_situacion;
 import com.bff.bsc.restclients.Bsc_lugar;
@@ -29,7 +29,7 @@ import com.bff.bsc.restclients.Bsc_tema;
 import com.bff.bsc.restclients.bsc_tipo_documento;
 import com.bff.bsc.restclients.Bsc_proyecto;
 import com.bff.bsc.restclients.bsc_kpiMetaMicro1;
-
+import com.bff.bsc.restclients.bsc_inventario_unidad;
 
 
 @Service
@@ -70,6 +70,9 @@ bsc_tipo_documento tipo_documento;
 
 @Autowired
 bsc_kpiMetaMicro1 kpi_meta;
+
+@Autowired
+bsc_inventario_unidad inventarioUnidad;
 //-------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------BSC_PROYECTO_ACTIVIDAD -> TOMAS OSORIO - MYSQL---------------------------------------------------------
@@ -379,7 +382,43 @@ public void bsc_tipo_documentodelete(long id) {
         // TODO Auto-generated method stub
         return kpi_meta.kpiMetaUpdate(id, kpiMeta);
     }
+// -----------------------------------------------------------------------------------------------------------------------------
+	// ------------------------BSC_INVENTARIO_UNIDAD -> Miguel Belmar ->
+	// MYSQL--------------------------------------------------------
 
+	@Override
+	public List<InventarioUnidadDTO> bsc_inventario_unidadFindAll() {
+		return bsc_inventario_unidadFindAll();
+	}
+
+	@Override
+	public Optional<InventarioUnidadDTO> bsc_inventario_unidadFindById(int id) {
+		return bsc_inventario_unidadFindById(id);
+	}
+
+	@Override
+	public InventarioUnidadDTO bsc_inventario_unidadSave(InventarioUnidadDTO inventarioUnidad) {
+		InventarioUnidadDTO inventarioUnidadDTO = bsc_inventario_unidadSave(inventarioUnidad);
+		return inventarioUnidadDTO;
+	}
+
+	@Override
+	public InventarioUnidadDTO bsc_inventario_unidadUpdate(int id, InventarioUnidadDTO inventarioUnidad) {
+		Optional<InventarioUnidadDTO> optionalInventarioUnidad = bsc_inventario_unidadFindById(id);
+		;
+		if (optionalInventarioUnidad.isPresent()) {
+			inventarioUnidad.setId(id);
+			InventarioUnidadDTO inventarioUnidadDTO = bsc_inventario_unidadSave(inventarioUnidad);
+			return inventarioUnidadDTO;
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void bsc_inventario_unidadDelete(int id) {
+		bsc_inventario_unidadDelete(id);
+	}
 
 	
 
