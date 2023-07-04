@@ -1,4 +1,4 @@
-package com.example.demo.restclients;
+package com.bff.bsc.restclients;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.example.demo.dto.KpiMetaDTO;
+import com.bff.bsc.dto.KpiMetaDTO;
 
 @FeignClient(name = "kpiMetaMicro", url = "${rest.endpoints.demoweb.url.bsc_kpi_meta}")
 public interface bsc_kpiMetaMicro1 {
