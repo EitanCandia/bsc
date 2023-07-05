@@ -16,7 +16,7 @@ import com.bff.bsc.dto.Proyecto_inventario_recursosDTO;
 
 
 
-@FeignClient(name = "inventarioUnidadMicro", url = "${rest.endpoints.demoweb.url.bsc_inventario_unidad}")
+@FeignClient(name = "inventarioUnidadrecursos", url = "${rest.endpoints.demoweb.url.bsc_inventario_unidad}")
 public interface bsc_proyecto_inventario_recursos {
 
     @GetMapping(value = "v1/org/bsc_proyecto_inventario_recursos/REST", produces = "application/json")

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.bff.bsc.dto.proveedorDTO;
 
-@FeignClient(name = "proveedorMicro", url = "${rest.endpoints.demoweb.url.micro1}")
+@FeignClient(name = "proveedorMicro", url = "${rest.endpoints.demoweb.url.bsc_proveedor}")
 public interface proveedorMicro1 {
 	///v1/bff1/micro1
 	
