@@ -1,4 +1,4 @@
-package com.example.demo.restclients;
+package com.bff.bsc.restclients;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.example.demo.dto.proveedorDTO;
+
+import com.bff.bsc.dto.proveedorDTO;
 
 @FeignClient(name = "proveedorMicro", url = "${rest.endpoints.demoweb.url.micro1}")
 public interface proveedorMicro1 {
