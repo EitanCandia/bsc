@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bff.bsc.dto.bsc_plan_de_cuentasDTO;
 import com.bff.bsc.dto.ideasDTO;
 
-@FeignClient(name = "bsc_plan_de_cuentasClient", url = "${rest.endpoints.demoweb.url.bsc_plan_de_cuentas}")
+@FeignClient(name = "bscplandecuentasClient", url = "${rest.endpoints.demoweb.url.bsc_plan_de_cuentas}")
 public interface bsc_plan_de_cuentas {
 
 		@GetMapping(value = "/v1/bsc/bsc_plan_de_cuentas/REST", produces = "application/json")
