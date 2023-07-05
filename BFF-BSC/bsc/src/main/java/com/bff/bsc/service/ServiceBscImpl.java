@@ -528,30 +528,32 @@ public void bsc_tipo_documentodelete(long id) {
 //------------------------bsc_plan_de_cuentas-> MATIAS MAULEN -> MYSQL--------------------------------------------------------
 @Override
 public List<bsc_plan_de_cuentasDTO> bsc_plan_de_cuentasFindAll() {
-	return plan_de_cuentas.findAll();
+    // TODO Auto-generated method stub
+    return plan_de_cuentas.findAll();
 }
 
 @Override
 public Optional<bsc_plan_de_cuentasDTO> bsc_plan_de_cuentasFindById(int id) {
-	return plan_de_cuentas.findById(id);
+    // TODO Auto-generated method stub
+    return plan_de_cuentas.findById(id);
 }
 
 @Override
-public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasSave(bsc_plan_de_cuentasDTO pc) {
-    bsc_plan_de_cuentasDTO savedPlan = plan_de_cuentas.save(pc);
-    return savedPlan;
+public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasSave(bsc_plan_de_cuentasDTO bsc_plan_de_cuentasDTO) {
+    // TODO Auto-generated method stub
+    return plan_de_cuentas.save(bsc_plan_de_cuentasDTO);
 }
 
 @Override
-public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasUpdate(int id, bsc_plan_de_cuentasDTO bsc_plan_de_cuentas) {
-	// TODO Auto-generated method stub
-	return null;
+public bsc_plan_de_cuentasDTO bsc_plan_de_cuentasUpdate(int id, bsc_plan_de_cuentasDTO bsc_plan_de_cuentasDTO) {
+    // TODO Auto-generated method stub
+    return plan_de_cuentas.update(id, bsc_plan_de_cuentasDTO);
 }
 
 @Override
 public void bsc_plan_de_cuentasDelete(int id) {
-	plan_de_cuentas.delete(id);
-	
+    // TODO Auto-generated method stub
+    plan_de_cuentas.delete(id);
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------
