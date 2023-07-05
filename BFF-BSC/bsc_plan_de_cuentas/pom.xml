@@ -8,11 +8,11 @@
 		<version>2.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>cl.thinkcloud.boxplanner</groupId>
-	<artifactId>BoxPlannerElectivoLab1</artifactId>
+	<groupId>cl.thinkcloud.plan-de-cuentas</groupId>
+	<artifactId>plan-de-cuentas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BoxPlannerElectivoLab1</name>
-	<description>BoxPlannerElectivoLab1</description>
+	<name>plan-de-cuentas</name>
+	<description>plan-de-cuentas</description>
 
 	<properties>
 		<java.version>11</java.version>
